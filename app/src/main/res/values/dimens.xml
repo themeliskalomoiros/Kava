@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="main_label">24sp</dimen>
+    <dimen name="category_label">44sp</dimen>
+    <dimen name="half_margin">4dp</dimen>
 </resources>
