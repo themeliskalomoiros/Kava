@@ -1,0 +1,1218 @@
+{
+  "categories": [
+    {
+      "id": 0,
+      "title": "Βότκα"
+    },
+    {
+      "id": 1,
+      "title": "Ουίσκι"
+    },
+    {
+      "id": 2,
+      "title": "Τζιν"
+    },
+    {
+      "id": 3,
+      "title": "Ρούμι"
+    },
+    {
+      "id": 4,
+      "title": "Τεκίλα"
+    },
+    {
+      "id": 5,
+      "title": "Οίνος"
+    },
+    {
+      "id": 6,
+      "title": "Ελληνικά Ποτά"
+    },
+    {
+      "id": 7,
+      "title": "Μπύρα"
+    },
+    {
+      "id": 8,
+      "title": "Λικέρ"
+    },
+    {
+      "id": 9,
+      "title": "Χυμοί"
+    },
+    {
+      "id": 10,
+      "title": "Αναψυκτικά"
+    },
+    {
+      "id": 11,
+      "title": "Άλλα"
+    },
+    {
+      "id": 12,
+      "title": "Σάϊντερ"
+    },
+    {
+      "id": 13,
+      "title": "Κοκτέϊλ"
+    },
+    {
+      "id": 14,
+      "title": "Βερμούτ"
+    }
+  ],
+  "items": [
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Absolut",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Absolut",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Absolut Citron",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Absolut Citron",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 7,
+      "picturePath": "",
+      "title": "Alpha",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 7,
+      "picturePath": "",
+      "title": "Amstel Radler",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Aperol",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Aperol",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 3,
+      "picturePath": "",
+      "title": "Bacardi",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 3,
+      "picturePath": "",
+      "title": "Bacardi",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 12,
+      "picturePath": "",
+      "title": "Bacardi Breezer Lemon",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 12,
+      "picturePath": "",
+      "title": "Bacardi Breezer Lime",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 12,
+      "picturePath": "",
+      "title": "Bacardi Breezer Watermelon",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Baileys",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Baileys",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 13,
+      "picturePath": "",
+      "title": "Batida",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 13,
+      "picturePath": "",
+      "title": "Batida",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 2,
+      "picturePath": "",
+      "title": "Beefeater",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 2,
+      "picturePath": "",
+      "title": "Beefeater",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Beluga",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Beluga",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Belvedere",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Belvedere",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 5,
+      "picturePath": "",
+      "title": "BiancoNero Οίνος Κόκκινος Ξηρός",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 5,
+      "picturePath": "",
+      "title": "BiancoNero Οίνος Λευκός Αφρώδες",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 5,
+      "picturePath": "",
+      "title": "BiancoNero Οίνος Λευκός Ξηρός",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 5,
+      "picturePath": "",
+      "title": "BiancoNero Οίνος Ροζέ Αφρώδες",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 5,
+      "picturePath": "",
+      "title": "BiancoNero Οίνος Ροζέ Ξηρός",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 2,
+      "picturePath": "",
+      "title": "Bombay",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 2,
+      "picturePath": "",
+      "title": "Bombay",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 7,
+      "picturePath": "",
+      "title": "Bud",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 3,
+      "picturePath": "",
+      "title": "Cachaca",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 3,
+      "picturePath": "",
+      "title": "Cachaca",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Campari",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Campari",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Canadian",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Canadian",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Canadian",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Canadian",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 3,
+      "picturePath": "",
+      "title": "Captain Morgan",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 3,
+      "picturePath": "",
+      "title": "Captain Morgan",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Cardu 12",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Cardu 12",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Chiroc",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Chiroc",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Chivas Regal 12",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Chivas Regal 12",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Coca-Cola",
+      "volume": "500ml"
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Coca-Cola",
+      "volume": "Κουτάκι"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Cointreau",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Cointreau",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 7,
+      "picturePath": "",
+      "title": "Corona Extra",
+      "volume": "355ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Cutty Sark",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Cutty Sark",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Dewars",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Dewars",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Dimple 15",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Dimple 15",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Disaronno",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Disaronno",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Drambuie",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Drambuie",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 7,
+      "picturePath": "",
+      "title": "Fix Hellas",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Frangelico",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Frangelico",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Glenfiddich",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Glenfiddich",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Gordon's",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Gordon's",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Grand Marnier",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Grand Marnier",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Grey Goose",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Grey Goose",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Haig",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Haig",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 5,
+      "picturePath": "",
+      "title": "Harveys",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 5,
+      "picturePath": "",
+      "title": "Harveys",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 3,
+      "picturePath": "",
+      "title": "Havana Club 3",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 3,
+      "picturePath": "",
+      "title": "Havana Club 3",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 3,
+      "picturePath": "",
+      "title": "Havana Club 7",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 3,
+      "picturePath": "",
+      "title": "Havana Club 7",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 7,
+      "picturePath": "",
+      "title": "Heineken",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 2,
+      "picturePath": "",
+      "title": "Hendrick's",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 2,
+      "picturePath": "",
+      "title": "Hendrick's",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "J&B",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "J&B",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Jack Daniels",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Jack Daniels",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Jagermeister",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Jagermeister",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Jameson",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Jameson",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Jim Beam",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Jim Beam",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Johnnie Walker Black Label",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Johnnie Walker Black Label",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Johnnie Walker Blender's Batch - Red Rye Finish",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Johnnie Walker Blender's Batch - Red Rye Finish",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Johnnie Walker Red Label",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Johnnie Walker Red Label",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Kahlúa",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Kahlúa",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Malibu",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Malibu",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Marie Brizard Cordial Citron de Vert",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Marie Brizard Cordial Citron de Vert",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 14,
+      "picturePath": "",
+      "title": "Martini Bianco",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 14,
+      "picturePath": "",
+      "title": "Martini Bianco",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 14,
+      "picturePath": "",
+      "title": "Martini Extra Dry",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 14,
+      "picturePath": "",
+      "title": "Martini Extra Dry",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 14,
+      "picturePath": "",
+      "title": "Martini Rossato",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 14,
+      "picturePath": "",
+      "title": "Martini Rossato",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 14,
+      "picturePath": "",
+      "title": "Martini Rosso",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 14,
+      "picturePath": "",
+      "title": "Martini Rosso",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Monin Mandel Sirup",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Monin Mandel Sirup",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 5,
+      "picturePath": "",
+      "title": "Moscato D'ifestia Ημιαφρώδες",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 7,
+      "picturePath": "",
+      "title": "Mythos",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 7,
+      "picturePath": "",
+      "title": "Mythos",
+      "volume": "0.5L"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Pisang Ambon",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Pisang Ambon",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 5,
+      "picturePath": "",
+      "title": "Prosecco",
+      "volume": "Μπουκαλάκι"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Smirnoff North",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Smirnoff North",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Sourz Apple",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Sourz Apple",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Stolichnaya",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Stolichnaya",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 12,
+      "picturePath": "",
+      "title": "Strongbow Gold Apple",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 12,
+      "picturePath": "",
+      "title": "Strongbow Red Berries",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 2,
+      "picturePath": "",
+      "title": "Tanqueray",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 2,
+      "picturePath": "",
+      "title": "Tanqueray",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Teacher's",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Teacher's",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Tia Maria",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Tia Maria",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Ursus",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 0,
+      "picturePath": "",
+      "title": "Ursus",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Γκαζόζα",
+      "volume": "500ml"
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Γκαζόζα",
+      "volume": "Κουτάκι"
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Ενεργειακό Ποτό",
+      "volume": "250ml"
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Ενεργειακό Ποτό",
+      "volume": "500ml"
+    },
+    {
+      "categoryId": 4,
+      "picturePath": "",
+      "title": "Jose Cuervo (Κίτρινη)",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 4,
+      "picturePath": "",
+      "title": "Jose Cuervo (Κίτρινη)",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Καλαμάκια",
+      "volume": ""
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Λάιμ",
+      "volume": ""
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Λεμονάδα",
+      "volume": "500ml"
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Λεμονάδα",
+      "volume": "Κουτάκι"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Λεμόνια",
+      "volume": ""
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Sambuca Molinari (Λευκή)",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Sambuca Molinari (Λευκή)",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 4,
+      "picturePath": "",
+      "title": "Jose Cuervo (Λευκή)",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 4,
+      "picturePath": "",
+      "title": "Jose Cuervo (Λευκή)",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Μαρασκίνο (Κεράσι)",
+      "volume": ""
+    },
+    {
+      "categoryId": 5,
+      "picturePath": "",
+      "title": "Μαυροδάφνη",
+      "volume": "750ml"
+    },
+    {
+      "categoryId": 5,
+      "picturePath": "",
+      "title": "Μαυροδάφνη",
+      "volume": "750ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Molinari Caffe Sambuca (Μαύρη)",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Molinari Caffe Sambuca (Μαύρη)",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 6,
+      "picturePath": "",
+      "title": "Μεταξά 3άρι",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 6,
+      "picturePath": "",
+      "title": "Μεταξά 3άρι",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 6,
+      "picturePath": "",
+      "title": "Μεταξά 5άρι",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 6,
+      "picturePath": "",
+      "title": "Μεταξά 5άρι",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 6,
+      "picturePath": "",
+      "title": "Μεταξά 7άρι",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 6,
+      "picturePath": "",
+      "title": "Μεταξά 7άρι",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Νερό Ανθρακούχο",
+      "volume": "Μικρό"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Νερό μεγάλο",
+      "volume": "1.5L"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Νερό μεσαίο",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Νερό μικρό",
+      "volume": "0.5L"
+    },
+    {
+      "categoryId": 6,
+      "picturePath": "",
+      "title": "Ούζο",
+      "volume": "Μεγάλο"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Πορτοκάλια",
+      "volume": ""
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Πορτοκαλάδα",
+      "volume": "500ml"
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Πορτοκαλάδα",
+      "volume": "Κουτάκι"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Πουρές Μάνγκο",
+      "volume": ""
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Πουρές Πάσιον Φρουτ",
+      "volume": ""
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Πουρές Πεπόνι",
+      "volume": ""
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Πουρές Τροπικά Φρούτα",
+      "volume": ""
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Πουρές Φράουλα",
+      "volume": ""
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Σόδα",
+      "volume": "500ml"
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Σόδα",
+      "volume": "Κουτάκι"
+    },
+    {
+      "categoryId": 4,
+      "picturePath": "",
+      "title": "Olmeca Dark (Σοκολάτα)",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 4,
+      "picturePath": "",
+      "title": "Olmeca Dark (Σοκολάτα)",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 6,
+      "picturePath": "",
+      "title": "Τσίπουρο",
+      "volume": "Μεγάλο"
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Τόνικ",
+      "volume": "500ml"
+    },
+    {
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Τόνικ",
+      "volume": "Κουτάκι"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Χαρτοπετσέτες",
+      "volume": ""
+    },
+    {
+      "categoryId": 98,
+      "picturePath": "",
+      "title": "Χυμός Ανανάς",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 9,
+      "picturePath": "",
+      "title": "Χυμός Βύσσινο",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 9,
+      "picturePath": "",
+      "title": "Χυμός Κράνμπερι",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 9,
+      "picturePath": "",
+      "title": "Χυμός Λεμόνι",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 9,
+      "picturePath": "",
+      "title": "Χυμός Πορτοκάλι",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 9,
+      "picturePath": "",
+      "title": "Χυμός Ροδάκινο",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 9,
+      "picturePath": "",
+      "title": "Χυμός Ροδάκινο",
+      "volume": "1L"
+    }
+  ]
+}
