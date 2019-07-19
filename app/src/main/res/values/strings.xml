@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Η Κάβα</string>
     <string name="choose_category">Επέλεξε κατηγορία</string>
+    <string name="take_notes_on_items">Σημείωσε την Κάβα</string>
 </resources>
