@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Kava</string>
+    <string name="app_name">Η Κάβα</string>
+    <string name="choose_category">Επέλεξε κατηγορία</string>
 </resources>
