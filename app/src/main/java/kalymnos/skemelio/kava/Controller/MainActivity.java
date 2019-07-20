@@ -1,8 +1,10 @@
-package kalymnos.skemelio.kava;
+package kalymnos.skemelio.kava.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import kalymnos.skemelio.kava.R;
 
 public class MainActivity extends AppCompatActivity {
 
