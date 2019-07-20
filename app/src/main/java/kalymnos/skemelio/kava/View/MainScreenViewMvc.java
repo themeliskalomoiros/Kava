@@ -12,4 +12,8 @@ public interface MainScreenViewMvc extends ViewMvc {
     }
 
     void setOnCategoryClickListener(OnCategoryClickListener listener);
+
+    void showProgressBar();
+
+    void hideProgressBar();
 }

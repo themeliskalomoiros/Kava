@@ -7,6 +7,17 @@
     android:background="@color/colorPrimary"
     tools:context=".Controller.MainActivity">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/categories"
+        app:layout_constraintEnd_toEndOf="@+id/categories"
+        app:layout_constraintStart_toStartOf="@+id/categories"
+        app:layout_constraintTop_toTopOf="@+id/categories"
+        android:visibility="invisible"/>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
