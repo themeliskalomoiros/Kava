@@ -6,11 +6,18 @@ import kalymnos.skemelio.kava.Model.Item;
 import kalymnos.skemelio.kava.View.ViewMvc;
 
 public interface ItemsScreenViewMvc extends ViewMvc {
-    interface OnItemClickListener {
-        void onItemClick(int position);
+
+    interface OnItemQuantityChangeListener {
+        void onAtomAdded(int position);
+
+        void onContainerAdded(int position);
+
+        void onAtomRemoved(int position);
+
+        void onContainerRemoved(int position);
     }
 
-    void setOnItemClickListener(OnItemClickListener listener);
+    void setOnItemQuantityChangeListener(OnItemQuantityChangeListener listener);
 
     interface OnSaveClickListener {
         void onSaveClick();

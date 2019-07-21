@@ -10,9 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import kalymnos.skemelio.kava.Model.Item;
 import kalymnos.skemelio.kava.R;
@@ -21,6 +19,7 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder> {
 
     private List<Item> items;
     private Context context;
+    private ItemsScreenViewMvc.OnItemQuantityChangeListener onItemQuantityChangeListener;
 
     public ItemsAdapter(Context context) {
         this.context = context;
@@ -51,6 +50,10 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder> {
         return 0;
     }
 
+    public void setOnItemQuantityChangeListener(ItemsScreenViewMvc.OnItemQuantityChangeListener listener) {
+        onItemQuantityChangeListener = listener;
+    }
+
     class ItemsHolder extends RecyclerView.ViewHolder {
         private TextView title, subtitle;
         private ImageButton plus, minus;
@@ -63,8 +66,34 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder> {
         private void initViews(@NonNull View itemView) {
             title = itemView.findViewById(R.id.title);
             subtitle = itemView.findViewById(R.id.subtitle);
-            plus = itemView.findViewById(R.id.add_button);
+            initMinusButton(itemView);
+            initPlusButton(itemView);
+        }
+
+        private void initMinusButton(@NonNull View itemView) {
             minus = itemView.findViewById(R.id.remove_button);
+            minus.setOnClickListener(view -> {
+                if (onItemQuantityChangeListener != null)
+                    onItemQuantityChangeListener.onAtomRemoved(getAdapterPosition());
+            });
+            minus.setOnLongClickListener(view -> {
+                if (onItemQuantityChangeListener != null)
+                    onItemQuantityChangeListener.onContainerRemoved(getAdapterPosition());
+                return true;
+            });
+        }
+
+        private void initPlusButton(@NonNull View itemView) {
+            plus = itemView.findViewById(R.id.add_button);
+            plus.setOnClickListener(view -> {
+                if (onItemQuantityChangeListener != null)
+                    onItemQuantityChangeListener.onAtomAdded(getAdapterPosition());
+            });
+            plus.setOnLongClickListener(view -> {
+                if (onItemQuantityChangeListener != null)
+                    onItemQuantityChangeListener.onContainerAdded(getAdapterPosition());
+                return true;
+            });
         }
 
         void bind(String title, String subtitle) {

@@ -24,12 +24,12 @@ public class MainScreenViewMvcImpl implements MainScreenViewMvc {
     public MainScreenViewMvcImpl(LayoutInflater inflater, ViewGroup container) {
         root = inflater.inflate(R.layout.screen_main, container, false);
         progressBar = root.findViewById(R.id.progressBar);
-        adapter = new CategoriesAdapter(root.getContext());
         setupRecyclerView();
     }
 
     private void setupRecyclerView() {
         categories = root.findViewById(R.id.categories);
+        adapter = new CategoriesAdapter(root.getContext());
         LinearLayoutManager layoutManager = new LinearLayoutManager(root.getContext());
         categories.setAdapter(adapter);
         categories.setLayoutManager(layoutManager);

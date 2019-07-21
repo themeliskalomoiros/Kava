@@ -1,11 +1,6 @@
 package kalymnos.skemelio.kava.Model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 
 public class Category{
 
