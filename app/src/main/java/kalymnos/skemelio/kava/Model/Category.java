@@ -1,8 +1,9 @@
 package kalymnos.skemelio.kava.Model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Category{
+public class Category implements Serializable {
 
     public final int id;
     public final String title;
