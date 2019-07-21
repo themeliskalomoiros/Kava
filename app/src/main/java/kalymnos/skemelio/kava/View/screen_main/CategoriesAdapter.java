@@ -1,4 +1,4 @@
-package kalymnos.skemelio.kava.View;
+package kalymnos.skemelio.kava.View.screen_main;
 
 import android.content.Context;
 import android.view.LayoutInflater;

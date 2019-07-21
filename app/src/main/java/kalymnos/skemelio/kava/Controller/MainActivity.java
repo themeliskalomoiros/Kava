@@ -21,8 +21,8 @@ import java.util.List;
 
 import kalymnos.skemelio.kava.Model.Categories;
 import kalymnos.skemelio.kava.Model.Category;
-import kalymnos.skemelio.kava.View.MainScreenViewMvc;
-import kalymnos.skemelio.kava.View.MainScreenViewMvcImpl;
+import kalymnos.skemelio.kava.View.screen_main.MainScreenViewMvc;
+import kalymnos.skemelio.kava.View.screen_main.MainScreenViewMvcImpl;
 
 public class MainActivity extends AppCompatActivity
         implements MainScreenViewMvc.OnCategoryClickListener,
