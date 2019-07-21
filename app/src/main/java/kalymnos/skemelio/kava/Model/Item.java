@@ -23,6 +23,18 @@ public class Item {
         ++quantity.container;
     }
 
+    public int getAtom() {
+        return quantity.atom;
+    }
+
+    public int getContainer() {
+        return quantity.container;
+    }
+
+    public String getQuantityText(String containersLabel, String atomsLabel) {
+        return String.format("%s %d, %s %d", containersLabel, getAtom(), atomsLabel, getAtom());
+    }
+
     @Override
     public String toString() {
         return title + ", " + volume;
