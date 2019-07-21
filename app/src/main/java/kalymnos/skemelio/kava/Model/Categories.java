@@ -49,11 +49,11 @@ public final class Categories {
         JSONObject obj = array.optJSONObject(i);
         int id = obj.optInt("id");
         String title = obj.optString("title");
-        HashMap<Item, Quantity> categoryItems = new HashMap<>();
+        List<Item> items = new ArrayList<>();
         for (Item item : allItems) {
             if (item.categoryId == id)
-                categoryItems.put(item, new Quantity(0, 0));
+                items.add(item);
         }
-        return new Category(id, title, categoryItems);
+        return new Category(id, title, items);
     }
 }
