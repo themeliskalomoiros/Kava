@@ -52,44 +52,42 @@ public class ItemsActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_delete) {
-            resetItems();
+            resetAllQuantitiesOf(category.id);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void resetItems() {
-        for (Item i : category.getItemList()) {
-            i.resetQuantity();
-        }
+    private void resetAllQuantitiesOf(int categoryId) {
+        //TODO: implement
         viewMvc.bindItems(category.getItemList());
     }
 
     @Override
     public void onAtomAdded(int position) {
         Item item = category.getItemAt(position);
-        item.addAtom();
+        //TODO: implement
         viewMvc.bindItems(category.getItemList());
     }
 
     @Override
     public void onContainerAdded(int position) {
         Item item = category.getItemAt(position);
-        item.addContainer();
+        //TODO: implement
         viewMvc.bindItems(category.getItemList());
     }
 
     @Override
     public void onAtomRemoved(int position) {
         Item item = category.getItemAt(position);
-        item.removeAtom();
+        //TODO: implement
         viewMvc.bindItems(category.getItemList());
     }
 
     @Override
     public void onContainerRemoved(int position) {
         Item item = category.getItemAt(position);
-        item.removeContainer();
+        //TODO: implement
         viewMvc.bindItems(category.getItemList());
     }
 

@@ -55,16 +55,14 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_note) {
-            resetCategories();
+            resetAllQuantities();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void resetCategories() {
-        for (Category c : categories) {
-            c.reset();
-        }
+    private void resetAllQuantities() {
+        //TODO implement
     }
 
     @Override
