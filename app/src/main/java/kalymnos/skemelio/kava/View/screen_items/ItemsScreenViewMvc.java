@@ -2,7 +2,7 @@ package kalymnos.skemelio.kava.View.screen_items;
 
 import java.util.List;
 
-import kalymnos.skemelio.kava.Model.Item;
+import kalymnos.skemelio.kava.Model.pojos.Item;
 import kalymnos.skemelio.kava.View.ViewMvc;
 
 public interface ItemsScreenViewMvc extends ViewMvc {

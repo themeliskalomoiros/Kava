@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,8 +22,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import kalymnos.skemelio.kava.Model.Categories;
-import kalymnos.skemelio.kava.Model.Category;
+import kalymnos.skemelio.kava.Model.pojos.Categories;
+import kalymnos.skemelio.kava.Model.pojos.Category;
 import kalymnos.skemelio.kava.R;
 import kalymnos.skemelio.kava.View.screen_main.MainScreenViewMvc;
 import kalymnos.skemelio.kava.View.screen_main.MainScreenViewMvcImpl;

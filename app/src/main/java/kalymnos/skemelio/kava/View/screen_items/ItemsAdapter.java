@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import kalymnos.skemelio.kava.Model.Item;
+import kalymnos.skemelio.kava.Model.pojos.Item;
 import kalymnos.skemelio.kava.R;
 
 class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder> {

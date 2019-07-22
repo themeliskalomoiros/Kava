@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import kalymnos.skemelio.kava.Model.Category;
+import kalymnos.skemelio.kava.Model.pojos.Category;
 import kalymnos.skemelio.kava.R;
 
 public class MainScreenViewMvcImpl implements MainScreenViewMvc {

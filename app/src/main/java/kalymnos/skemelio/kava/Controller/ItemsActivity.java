@@ -3,15 +3,13 @@ package kalymnos.skemelio.kava.Controller;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import kalymnos.skemelio.kava.Model.Category;
-import kalymnos.skemelio.kava.Model.Item;
+import kalymnos.skemelio.kava.Model.pojos.Category;
+import kalymnos.skemelio.kava.Model.pojos.Item;
 import kalymnos.skemelio.kava.R;
 import kalymnos.skemelio.kava.View.screen_items.ItemsScreenViewMvc;
 import kalymnos.skemelio.kava.View.screen_items.ItemsScreenViewMvcImpl;

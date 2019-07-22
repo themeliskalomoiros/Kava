@@ -1,10 +1,9 @@
-package kalymnos.skemelio.kava.Model;
+package kalymnos.skemelio.kava.Model.pojos;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public final class Categories {

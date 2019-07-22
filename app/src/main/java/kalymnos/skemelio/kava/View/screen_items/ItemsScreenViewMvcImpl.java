@@ -13,7 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-import kalymnos.skemelio.kava.Model.Item;
+import kalymnos.skemelio.kava.Model.pojos.Item;
 import kalymnos.skemelio.kava.R;
 
 public class ItemsScreenViewMvcImpl implements ItemsScreenViewMvc {

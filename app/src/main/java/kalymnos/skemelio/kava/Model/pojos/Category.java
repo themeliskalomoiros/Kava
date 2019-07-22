@@ -1,4 +1,4 @@
-package kalymnos.skemelio.kava.Model;
+package kalymnos.skemelio.kava.Model.pojos;
 
 import java.io.Serializable;
 import java.util.List;
@@ -23,11 +23,5 @@ public class Category implements Serializable {
 
     public List<Item> getItemList() {
         return items;
-    }
-
-    public void reset() {
-        for (Item i : items) {
-            i.resetQuantity();
-        }
     }
 }
