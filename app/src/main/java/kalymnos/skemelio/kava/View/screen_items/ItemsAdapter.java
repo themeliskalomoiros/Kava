@@ -39,9 +39,8 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder> {
     @Override
     public void onBindViewHolder(@NonNull ItemsHolder holder, int position) {
         Item item = items.get(position);
-        String title = item.title;
         String subtitle = item.getQuantityText(context.getString(R.string.containers), context.getString(R.string.atoms));
-        holder.bind(title, subtitle);
+        holder.bind(item.toString(), subtitle);
     }
 
     @Override

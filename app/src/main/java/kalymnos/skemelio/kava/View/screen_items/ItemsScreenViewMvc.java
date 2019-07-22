@@ -26,4 +26,6 @@ public interface ItemsScreenViewMvc extends ViewMvc {
     void setOnSaveClickListener(OnSaveClickListener listener);
 
     void bindItems(List<Item> items);
+
+    void bindTitle(String title);
 }

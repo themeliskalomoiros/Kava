@@ -7,6 +7,7 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.AsyncTaskLoader;
 import androidx.loader.content.Loader;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,12 +40,22 @@ public class MainActivity extends AppCompatActivity
         viewMvc = new MainScreenViewMvcImpl(LayoutInflater.from(this), null);
         viewMvc.setOnCategoryClickListener(this);
         setContentView(viewMvc.getRootView());
-        getSupportLoaderManager().restartLoader(LOADER_ID,null,this);
+        getSupportLoaderManager().restartLoader(LOADER_ID, null, this);
     }
 
     @Override
     public void onCategoryClick(int position) {
+        Category category = categories.get(position);
+        Intent intent = getIntentWith(category);
+        startActivity(intent);
+    }
 
+    private Intent getIntentWith(Category c) {
+        Bundle extras = new Bundle();
+        extras.putSerializable(Category.TAG, c);
+        Intent intent = new Intent(this,ItemsActivity.class);
+        intent.putExtras(extras);
+        return intent;
     }
 
     @NonNull
@@ -97,6 +108,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onLoadFinished(@NonNull Loader<List<Category>> loader, List<Category> data) {
+        categories = data;
         viewMvc.hideProgressBar();
         viewMvc.bind(data);
     }

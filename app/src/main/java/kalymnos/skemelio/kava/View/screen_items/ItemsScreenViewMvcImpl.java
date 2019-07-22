@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +18,7 @@ import kalymnos.skemelio.kava.R;
 
 public class ItemsScreenViewMvcImpl implements ItemsScreenViewMvc {
     private View root;
+    private TextView title;
     private FloatingActionButton save;
     private RecyclerView recyclerView;
     private ItemsAdapter adapter;
@@ -24,6 +26,7 @@ public class ItemsScreenViewMvcImpl implements ItemsScreenViewMvc {
 
     public ItemsScreenViewMvcImpl(LayoutInflater inflater, ViewGroup parent) {
         root = inflater.inflate(R.layout.screen_items, parent, false);
+        title = root.findViewById(R.id.title);
         save = root.findViewById(R.id.save);
         save.setOnClickListener(view -> {
             if (saveClickListener != null)
@@ -55,6 +58,11 @@ public class ItemsScreenViewMvcImpl implements ItemsScreenViewMvc {
     public void bindItems(List<Item> items) {
         adapter.addItems(items);
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void bindTitle(String title) {
+        this.title.setText(title);
     }
 
     @Override

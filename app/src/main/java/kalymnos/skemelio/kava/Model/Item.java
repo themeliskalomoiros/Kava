@@ -1,6 +1,8 @@
 package kalymnos.skemelio.kava.Model;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
     public final int categoryId;
     public final String picturePath;
     public final String title;
@@ -23,6 +25,20 @@ public class Item {
         ++quantity.container;
     }
 
+    public void removeAtom() {
+        if (quantity.atom == 0) {
+            return;
+        }
+        --quantity.atom;
+    }
+
+    public void removeContainer() {
+        if (quantity.container == 0) {
+            return;
+        }
+        --quantity.container;
+    }
+
     public int getAtom() {
         return quantity.atom;
     }
@@ -32,7 +48,7 @@ public class Item {
     }
 
     public String getQuantityText(String containersLabel, String atomsLabel) {
-        return String.format("%s %d, %s %d", containersLabel, getAtom(), atomsLabel, getAtom());
+        return String.format("%s %d, %s %d", containersLabel, getContainer(), atomsLabel, getAtom());
     }
 
     @Override
@@ -54,7 +70,7 @@ public class Item {
                 && volume.equals(item.volume);
     }
 
-    private static class Quantity {
+    private static class Quantity implements Serializable {
         int atom, container;
 
         Quantity(int atom, int container) {
