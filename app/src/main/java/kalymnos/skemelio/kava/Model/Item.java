@@ -17,45 +17,6 @@ public class Item implements Serializable {
         quantity = new Quantity(0, 0);
     }
 
-    public void addAtom() {
-        ++quantity.atom;
-    }
-
-    public void addContainer() {
-        ++quantity.container;
-    }
-
-    public void removeAtom() {
-        if (quantity.atom == 0) {
-            return;
-        }
-        --quantity.atom;
-    }
-
-    public void removeContainer() {
-        if (quantity.container == 0) {
-            return;
-        }
-        --quantity.container;
-    }
-
-    public void resetQuantity() {
-        quantity.container = 0;
-        quantity.atom = 0;
-    }
-
-    public int getAtom() {
-        return quantity.atom;
-    }
-
-    public int getContainer() {
-        return quantity.container;
-    }
-
-    public String getQuantityText(String containersLabel, String atomsLabel) {
-        return String.format("%s %d, %s %d", containersLabel, getContainer(), atomsLabel, getAtom());
-    }
-
     @Override
     public String toString() {
         return title + ", " + volume;
@@ -73,14 +34,5 @@ public class Item implements Serializable {
                 && picturePath.equals(item.picturePath)
                 && title.equals(item.title)
                 && volume.equals(item.volume);
-    }
-
-    private static class Quantity implements Serializable {
-        int atom, container;
-
-        Quantity(int atom, int container) {
-            this.atom = atom;
-            this.container = container;
-        }
     }
 }
