@@ -24,4 +24,10 @@ public class Category implements Serializable {
     public List<Item> getItemList() {
         return items;
     }
+
+    public void reset() {
+        for (Item i : items) {
+            i.resetQuantity();
+        }
+    }
 }

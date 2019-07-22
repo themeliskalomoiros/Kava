@@ -39,6 +39,11 @@ public class Item implements Serializable {
         --quantity.container;
     }
 
+    public void resetQuantity() {
+        quantity.container = 0;
+        quantity.atom = 0;
+    }
+
     public int getAtom() {
         return quantity.atom;
     }

@@ -1,10 +1,14 @@
 package kalymnos.skemelio.kava.Controller;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import kalymnos.skemelio.kava.Model.Category;
 import kalymnos.skemelio.kava.Model.Item;
@@ -25,7 +29,7 @@ public class ItemsActivity extends AppCompatActivity
         initCategory();
         initViewMvc();
         setContentView(viewMvc.getRootView());
-        getSupportActionBar().setTitle(category.title+" ("+category.getItemList().size()+")");
+        getSupportActionBar().setTitle(category.title + " (" + category.getItemList().size() + ")");
         viewMvc.bindTitle(getString(R.string.take_notes_on_items) + String.format(" \"%s\"", category.title));
         viewMvc.bindItems(category.getItemList());
     }
@@ -39,6 +43,28 @@ public class ItemsActivity extends AppCompatActivity
         viewMvc = new ItemsScreenViewMvcImpl(LayoutInflater.from(this), null);
         viewMvc.setOnItemQuantityChangeListener(this);
         viewMvc.setOnSaveClickListener(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.items, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_delete) {
+            resetItems();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void resetItems() {
+        for (Item i : category.getItemList()) {
+            i.resetQuantity();
+        }
+        viewMvc.bindItems(category.getItemList());
     }
 
     @Override

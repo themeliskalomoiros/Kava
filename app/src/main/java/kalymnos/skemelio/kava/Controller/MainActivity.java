@@ -11,6 +11,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,6 +25,7 @@ import java.util.List;
 
 import kalymnos.skemelio.kava.Model.Categories;
 import kalymnos.skemelio.kava.Model.Category;
+import kalymnos.skemelio.kava.R;
 import kalymnos.skemelio.kava.View.screen_main.MainScreenViewMvc;
 import kalymnos.skemelio.kava.View.screen_main.MainScreenViewMvcImpl;
 
@@ -44,6 +48,27 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_note) {
+            resetCategories();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void resetCategories() {
+        for (Category c : categories) {
+            c.reset();
+        }
+    }
+
+    @Override
     public void onCategoryClick(int position) {
         Category category = categories.get(position);
         Intent intent = getIntentWith(category);
@@ -53,7 +78,7 @@ public class MainActivity extends AppCompatActivity
     private Intent getIntentWith(Category c) {
         Bundle extras = new Bundle();
         extras.putSerializable(Category.TAG, c);
-        Intent intent = new Intent(this,ItemsActivity.class);
+        Intent intent = new Intent(this, ItemsActivity.class);
         intent.putExtras(extras);
         return intent;
     }
