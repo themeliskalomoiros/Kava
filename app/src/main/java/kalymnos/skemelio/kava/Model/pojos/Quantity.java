@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Quantity implements Serializable {
     private int atom, container;
 
-    Quantity(int atom, int container) {
+    public Quantity(int atom, int container) {
         this.atom = atom;
         this.container = container;
     }
@@ -43,6 +43,10 @@ public class Quantity implements Serializable {
     public void reset() {
         container = 0;
         atom = 0;
+    }
+
+    public boolean isEmpty() {
+        return atom == 0 && container == 0;
     }
 
     public String getQuantityText(String containersLabel, String atomsLabel) {

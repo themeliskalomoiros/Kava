@@ -13,11 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import kalymnos.skemelio.kava.Model.pojos.Item;
+import kalymnos.skemelio.kava.Model.pojos.Quantity;
 import kalymnos.skemelio.kava.R;
 
 class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder> {
 
     private List<Item> items;
+    private Quantity[] quantities;
     private Context context;
     private ItemsScreenViewMvc.OnItemQuantityChangeListener onItemQuantityChangeListener;
 
@@ -27,6 +29,10 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder> {
 
     public void addItems(List<Item> items) {
         this.items = items;
+    }
+
+    public void addQuantities(Quantity[] quantities) {
+        this.quantities = quantities;
     }
 
     @NonNull
@@ -39,8 +45,8 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder> {
     @Override
     public void onBindViewHolder(@NonNull ItemsHolder holder, int position) {
         Item item = items.get(position);
-        //TODO: bind the subtitle
-        holder.bind(item.toString(), null); //TODO: replace the null
+        Quantity quantity = quantities[position];
+        holder.bind(item.toString(), quantity.getQuantityText(context.getString(R.string.containers), context.getString(R.string.atoms)));
     }
 
     @Override

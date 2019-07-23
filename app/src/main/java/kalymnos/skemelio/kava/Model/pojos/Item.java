@@ -1,5 +1,7 @@
 package kalymnos.skemelio.kava.Model.pojos;
 
+import android.util.Log;
+
 import java.io.Serializable;
 
 public class Item implements Serializable {
@@ -38,9 +40,17 @@ public class Item implements Serializable {
 
     @Override
     public int hashCode() {
-        return categoryId
-                + picturePath != null ? picturePath.hashCode() : 0
-                + title.hashCode()
-                + volume.hashCode();
+        int p = picturePath != null ? picturePath.hashCode() : 0;
+        int t = title.hashCode();
+        int v = volume.hashCode();
+
+        int hash = categoryId+p+t+v;
+
+        Log.d(Item.class.getSimpleName(), "CategoryId is " + categoryId);
+        Log.d(Item.class.getSimpleName(), "Picturepath "+picturePath+" hash is " + p);
+        Log.d(Item.class.getSimpleName(), title + " hash is " + title.hashCode());
+        Log.d(Item.class.getSimpleName(), volume + " hash is " + volume.hashCode());
+        Log.d(Item.class.getSimpleName(), title + "," + volume+" hash is " + hash);
+        return hash;
     }
 }

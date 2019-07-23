@@ -3,6 +3,7 @@ package kalymnos.skemelio.kava.View.screen_items;
 import java.util.List;
 
 import kalymnos.skemelio.kava.Model.pojos.Item;
+import kalymnos.skemelio.kava.Model.pojos.Quantity;
 import kalymnos.skemelio.kava.View.ViewMvc;
 
 public interface ItemsScreenViewMvc extends ViewMvc {
@@ -26,6 +27,8 @@ public interface ItemsScreenViewMvc extends ViewMvc {
     void setOnSaveClickListener(OnSaveClickListener listener);
 
     void bindItems(List<Item> items);
+
+    void bindQuantities(Quantity[] quantities);
 
     void bindTitle(String title);
 }

@@ -8,6 +8,7 @@ import androidx.loader.content.AsyncTaskLoader;
 import androidx.loader.content.Loader;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,8 +23,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
+import kalymnos.skemelio.kava.Model.persistance.QuantityRepo;
+import kalymnos.skemelio.kava.Model.persistance.QuantityRepoImpl;
 import kalymnos.skemelio.kava.Model.pojos.Categories;
 import kalymnos.skemelio.kava.Model.pojos.Category;
+import kalymnos.skemelio.kava.Model.pojos.Item;
 import kalymnos.skemelio.kava.R;
 import kalymnos.skemelio.kava.View.screen_main.MainScreenViewMvc;
 import kalymnos.skemelio.kava.View.screen_main.MainScreenViewMvcImpl;
@@ -36,14 +40,22 @@ public class MainActivity extends AppCompatActivity
 
     private MainScreenViewMvc viewMvc;
     private List<Category> categories;
+    private QuantityRepo repo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initRepo();
         viewMvc = new MainScreenViewMvcImpl(LayoutInflater.from(this), null);
         viewMvc.setOnCategoryClickListener(this);
         setContentView(viewMvc.getRootView());
         getSupportLoaderManager().restartLoader(LOADER_ID, null, this);
+    }
+
+    private void initRepo() {
+        SharedPreferences categoryPrefs = getSharedPreferences(Category.class.getSimpleName(), MODE_PRIVATE);
+        SharedPreferences itemPrefs = getSharedPreferences(Item.class.getSimpleName(), MODE_PRIVATE);
+        repo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
     }
 
     @Override
@@ -54,25 +66,30 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.action_note) {
-            resetAllQuantities();
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_note:
+                return true;
+            case R.id.action_clear:
+                return resetAllQuantities();
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
-    private void resetAllQuantities() {
-        //TODO implement
+    private boolean resetAllQuantities() {
+        repo.clear();
+        viewMvc.bind(categories);
+        return true;
     }
 
     @Override
     public void onCategoryClick(int position) {
         Category category = categories.get(position);
-        Intent intent = getIntentWith(category);
+        Intent intent = packIntentWith(category);
         startActivity(intent);
     }
 
-    private Intent getIntentWith(Category c) {
+    private Intent packIntentWith(Category c) {
         Bundle extras = new Bundle();
         extras.putSerializable(Category.TAG, c);
         Intent intent = new Intent(this, ItemsActivity.class);

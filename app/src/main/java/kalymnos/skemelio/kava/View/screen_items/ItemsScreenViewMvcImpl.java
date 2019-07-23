@@ -14,6 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 import kalymnos.skemelio.kava.Model.pojos.Item;
+import kalymnos.skemelio.kava.Model.pojos.Quantity;
 import kalymnos.skemelio.kava.R;
 
 public class ItemsScreenViewMvcImpl implements ItemsScreenViewMvc {
@@ -57,6 +58,12 @@ public class ItemsScreenViewMvcImpl implements ItemsScreenViewMvc {
     @Override
     public void bindItems(List<Item> items) {
         adapter.addItems(items);
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void bindQuantities(Quantity[] quantities) {
+        adapter.addQuantities(quantities);
         adapter.notifyDataSetChanged();
     }
 

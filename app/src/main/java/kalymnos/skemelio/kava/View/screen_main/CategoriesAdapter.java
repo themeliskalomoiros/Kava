@@ -29,7 +29,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
         this.context = context;
         SharedPreferences categoryPrefs = context.getSharedPreferences(Category.class.getSimpleName(), Context.MODE_PRIVATE);
         SharedPreferences itemPrefs = context.getSharedPreferences(Item.class.getSimpleName(), Context.MODE_PRIVATE);
-        repo = new QuantityRepoImpl(categoryPrefs, itemPrefs);
+        repo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
     }
 
     public void add(List<Category> categories) {
@@ -74,8 +74,11 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
         void bind(String name, int id) {
             this.name.setText(name);
-            if (repo.isCategorySet(id))
+            if (repo.isCategorySet(id)){
                 checked.setVisibility(View.VISIBLE);
+            }else{
+                checked.setVisibility(View.INVISIBLE);
+            }
         }
     }
 }

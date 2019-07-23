@@ -12,7 +12,8 @@
         android:layout_gravity="top|right"
         android:layout_margin="@dimen/half_margin"
         android:visibility="invisible"
-        android:src="@drawable/ic_check_accent_24dp"
+        android:background="@color/colorAccentLight"
+        android:src="@drawable/ic_check_white_24dp"
          />
 
     <TextView

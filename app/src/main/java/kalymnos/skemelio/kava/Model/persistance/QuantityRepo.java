@@ -1,5 +1,8 @@
 package kalymnos.skemelio.kava.Model.persistance;
 
+import java.util.List;
+
+import kalymnos.skemelio.kava.Model.pojos.Item;
 import kalymnos.skemelio.kava.Model.pojos.Quantity;
 
 public interface QuantityRepo {
@@ -9,9 +12,9 @@ public interface QuantityRepo {
 
     void markCategoryAsNonSet(int categoryId);
 
-    void save(int[] itemsHashes, Quantity[] quantities);
+    void save(String[] items, Quantity[] quantities);
 
     void clear();
 
-    void clearQuantityOf(int itemHashcode);
+    Quantity[] getQuantitiesOf(List<Item> items);
 }

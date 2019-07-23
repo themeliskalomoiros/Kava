@@ -6,4 +6,7 @@
     <string name="containers">Κιβώτια:</string>
     <string name="atoms">Μονάδες:</string>
     <string name="delete">Διαγραφή</string>
+    <string name="clear_categories">Επαναφορά κάβας</string>
+    <string name="saved">Αποθηκεύτηκε</string>
+    <string name="nothing_to_save">Τίποτα προς αποθήκευση</string>
 </resources>
