@@ -48,4 +48,16 @@ public class Quantity implements Serializable {
     public String getQuantityText(String containersLabel, String atomsLabel) {
         return String.format("%s %d, %s %d", containersLabel, getContainer(), atomsLabel, getAtom());
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Quantity other = (Quantity) obj;
+        if (other == null) return false;
+        return atom == other.atom && container == other.container;
+    }
+
+    @Override
+    public int hashCode() {
+        return atom * 2647 + container * 6173;
+    }
 }
