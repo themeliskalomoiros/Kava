@@ -29,10 +29,18 @@ public class Item implements Serializable {
         return hasSameValuesWith(otherItem);
     }
 
-    protected boolean hasSameValuesWith(Item item) {
+    private boolean hasSameValuesWith(Item item) {
         return categoryId == item.categoryId
                 && picturePath.equals(item.picturePath)
                 && title.equals(item.title)
                 && volume.equals(item.volume);
+    }
+
+    @Override
+    public int hashCode() {
+        return categoryId
+                + picturePath != null ? picturePath.hashCode() : 0
+                + title.hashCode()
+                + volume.hashCode();
     }
 }
