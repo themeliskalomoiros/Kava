@@ -10,10 +10,13 @@ import androidx.loader.content.Loader;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -68,12 +71,29 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_note:
+                if (repo.isEmpty(categories)){
+                    Snackbar.make(viewMvc.getRootView(),getString(R.string.kava_not_ready),Snackbar.LENGTH_SHORT).show();
+                }else{
+                    Intent intent = packIntentWithCategories();
+                    startActivity(intent);
+                }
                 return true;
             case R.id.action_clear:
                 return resetAllQuantities();
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private Intent packIntentWithCategories() {
+        Intent intent = new Intent(this, CheckoutActivity.class);
+        Parcelable[] parcelables = new Parcelable[categories.size()];
+        for (int i = 0; i < categories.size(); i++) {
+            Category c = categories.get(i);
+            parcelables[i] = c;
+        }
+        intent.putExtra(Category.class.getSimpleName(),parcelables);
+        return intent;
     }
 
     private boolean resetAllQuantities() {
@@ -91,7 +111,7 @@ public class MainActivity extends AppCompatActivity
 
     private Intent packIntentWith(Category c) {
         Bundle extras = new Bundle();
-        extras.putSerializable(Category.TAG, c);
+        extras.putParcelable(Category.class.getSimpleName(), c);
         Intent intent = new Intent(this, ItemsActivity.class);
         intent.putExtras(extras);
         return intent;

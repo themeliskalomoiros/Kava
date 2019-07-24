@@ -2,6 +2,7 @@ package kalymnos.skemelio.kava.Model.persistance;
 
 import java.util.List;
 
+import kalymnos.skemelio.kava.Model.pojos.Category;
 import kalymnos.skemelio.kava.Model.pojos.Item;
 import kalymnos.skemelio.kava.Model.pojos.Quantity;
 
@@ -16,5 +17,9 @@ public interface QuantityRepo {
 
     void clear();
 
+    boolean isEmpty(List<Category> categories);
+
     Quantity[] getQuantitiesOf(List<Item> items);
+
+    Quantity getQuantityOf(Item item);
 }

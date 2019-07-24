@@ -49,7 +49,18 @@ public class Quantity implements Serializable {
         return atom == 0 && container == 0;
     }
 
-    public String getQuantityText(String containersLabel, String atomsLabel) {
+    public String getFullText(String containersLabel, String atomsLabel) {
+        return String.format("%s %d, %s %d", containersLabel, getContainer(), atomsLabel, getAtom());
+    }
+
+    public String getTextWithoutEmptyValues(String containersLabel, String atomsLabel) {
+        if (atom == 0 && container == 0) {
+            return null;
+        } else if (atom == 0) {
+            return String.format("%s %d", containersLabel, container);
+        } else if (container == 0) {
+            return String.format("%s %d", atomsLabel, atom);
+        }
         return String.format("%s %d, %s %d", containersLabel, getContainer(), atomsLabel, getAtom());
     }
 

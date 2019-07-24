@@ -3,10 +3,13 @@
     <string name="choose_category">Επέλεξε κατηγορία</string>
     <string name="take_notes_on_items">Σημείωσε για</string>
     <string name="share_the_noted_items">Μοιράσου την Κάβα</string>
-    <string name="containers">Κιβώτια:</string>
-    <string name="atoms">Μονάδες:</string>
+    <string name="containers">κιβώτια:</string>
+    <string name="atoms">μονάδες:</string>
     <string name="delete">Διαγραφή</string>
     <string name="clear_categories">Επαναφορά κάβας</string>
     <string name="saved">Αποθηκεύτηκε</string>
     <string name="nothing_to_save">Τίποτα προς αποθήκευση</string>
+    <string name="insert_title">Όρισε τίτλο</string>
+    <string name="title">Τίτλος</string>
+    <string name="kava_not_ready">Δεν έχεις ετοιμάσει Κάβα</string>
 </resources>

@@ -2,8 +2,10 @@ package kalymnos.skemelio.kava.Model.persistance;
 
 import android.content.SharedPreferences;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import kalymnos.skemelio.kava.Model.pojos.Category;
 import kalymnos.skemelio.kava.Model.pojos.Item;
 import kalymnos.skemelio.kava.Model.pojos.Quantity;
 
@@ -61,13 +63,35 @@ public class QuantityRepoImpl implements QuantityRepo {
     }
 
     @Override
+    public boolean isEmpty(List<Category> categories) {
+        List<Boolean> categoriesChecked = new ArrayList<>(categories.size());
+        for (Category c : categories) {
+            categoriesChecked.add(categoryPrefs.getBoolean(String.valueOf(c.id), false));
+        }
+        for (boolean checked : categoriesChecked) {
+            if (checked) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
     public Quantity[] getQuantitiesOf(List<Item> items) {
         Quantity[] quantities = new Quantity[items.size()];
         for (int i = 0; i < items.size(); i++) {
-            String key = items.get(i).toString();
-            String values[] = itemsPrefs.getString(key, "0,0").split(",");
-            quantities[i] = new Quantity(Integer.parseInt(values[0]), Integer.parseInt(values[1]));
+            Item item = items.get(i);
+            quantities[i] = getQuantityOf(item);
         }
         return quantities;
+    }
+
+    @Override
+    public Quantity getQuantityOf(Item item) {
+        String atomContainer = itemsPrefs.getString(item.toString(), "0,0");
+        String[] values = atomContainer.split(",");
+        int atom = Integer.parseInt(values[0]);
+        int container = Integer.parseInt(values[1]);
+        return new Quantity(atom, container);
     }
 }

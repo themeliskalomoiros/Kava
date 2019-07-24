@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.ItemsActivity"></activity>
+        <activity android:name=".Controller.CheckoutActivity"></activity>
+        <activity android:name=".Controller.ItemsActivity" />
         <activity android:name=".Controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

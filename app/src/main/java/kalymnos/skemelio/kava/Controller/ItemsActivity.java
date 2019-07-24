@@ -43,7 +43,7 @@ public class ItemsActivity extends AppCompatActivity
 
     private void initCategory() {
         Bundle data = getIntent().getExtras();
-        category = (Category) data.getSerializable(Category.TAG);
+        category = (Category) data.getParcelable(Category.class.getSimpleName());
     }
 
     private void initQuantities() {
@@ -120,11 +120,9 @@ public class ItemsActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        if (!allQuantitiesAreEmpty()) {
-            onSaveClick();
-        } else {
-            super.onBackPressed();
-        }
+        repo.save(getKeys(), quantities);
+        setCategoryItemCheckVisibility();
+        finish();
     }
 
     @Override

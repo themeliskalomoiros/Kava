@@ -1,22 +1,23 @@
 package kalymnos.skemelio.kava.Model.pojos;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
-public class Item implements Serializable {
+public class Item implements Parcelable, Comparable<Item>{
     public final int categoryId;
     public final String picturePath;
     public final String title;
     public final String volume;
-    private final Quantity quantity;
 
     public Item(int categoryId, String picturePath, String title, String volume) {
         this.categoryId = categoryId;
         this.picturePath = picturePath;
         this.title = title;
         this.volume = volume;
-        quantity = new Quantity(0, 0);
     }
 
     @Override
@@ -43,14 +44,49 @@ public class Item implements Serializable {
         int p = picturePath != null ? picturePath.hashCode() : 0;
         int t = title.hashCode();
         int v = volume.hashCode();
-
-        int hash = categoryId+p+t+v;
-
-        Log.d(Item.class.getSimpleName(), "CategoryId is " + categoryId);
-        Log.d(Item.class.getSimpleName(), "Picturepath "+picturePath+" hash is " + p);
-        Log.d(Item.class.getSimpleName(), title + " hash is " + title.hashCode());
-        Log.d(Item.class.getSimpleName(), volume + " hash is " + volume.hashCode());
-        Log.d(Item.class.getSimpleName(), title + "," + volume+" hash is " + hash);
-        return hash;
+        return categoryId + p + t + v;
     }
+
+    @Override
+    public int compareTo(Item other) {
+        if (categoryId < other.categoryId) {
+            return -1;
+        } else if (categoryId > other.categoryId) {
+            return 1;
+        }
+        return 0;
+    }
+
+    // Parcelable implementation
+    protected Item(Parcel in) {
+        categoryId = in.readInt();
+        picturePath = in.readString();
+        title = in.readString();
+        volume = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(categoryId);
+        parcel.writeString(picturePath);
+        parcel.writeString(title);
+        parcel.writeString(volume);
+    }
+
+    public static final Creator<Item> CREATOR = new Creator<Item>() {
+        @Override
+        public Item createFromParcel(Parcel in) {
+            return new Item(in);
+        }
+
+        @Override
+        public Item[] newArray(int size) {
+            return new Item[size];
+        }
+    };
 }
