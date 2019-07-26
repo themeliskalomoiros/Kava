@@ -317,13 +317,13 @@
     {
       "categoryId": 0,
       "picturePath": "",
-      "title": "Chiroc",
+      "title": "Ciroc",
       "volume": "700ml"
     },
     {
       "categoryId": 0,
       "picturePath": "",
-      "title": "Chiroc",
+      "title": "Ciroc",
       "volume": "1L"
     },
     {
@@ -348,6 +348,11 @@
       "categoryId": 10,
       "picturePath": "",
       "title": "Coca-Cola",
+      "volume": "Κουτάκι"
+    },{
+      "categoryId": 10,
+      "picturePath": "",
+      "title": "Three Cents Τόνικ",
       "volume": "Κουτάκι"
     },
     {
@@ -459,13 +464,13 @@
       "volume": "1L"
     },
     {
-      "categoryId": 1,
+      "categoryId": 2,
       "picturePath": "",
       "title": "Gordon's",
       "volume": "700ml"
     },
     {
-      "categoryId": 1,
+      "categoryId": 2,
       "picturePath": "",
       "title": "Gordon's",
       "volume": "1L"
@@ -807,12 +812,6 @@
       "volume": "700ml"
     },
     {
-      "categoryId": 8,
-      "picturePath": "",
-      "title": "Sourz Apple",
-      "volume": "1L"
-    },
-    {
       "categoryId": 0,
       "picturePath": "",
       "title": "Stolichnaya",
@@ -925,6 +924,11 @@
       "picturePath": "",
       "title": "Καλαμάκια",
       "volume": ""
+    },{
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Καλαμάκια",
+      "volume": "κοντά"
     },
     {
       "categoryId": 11,
@@ -1117,6 +1121,16 @@
       "picturePath": "",
       "title": "Πουρές Φράουλα",
       "volume": ""
+    },{
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Σακούλες Σκουπιδιών",
+      "volume": "μεγάλες"
+    },{
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Σακούλες Σκουπιδιών",
+      "volume": "μικρές"
     },
     {
       "categoryId": 10,
@@ -1199,7 +1213,7 @@
     {
       "categoryId": 9,
       "picturePath": "",
-      "title": "Χυμός Ροδάκινο",
+      "title": "Χυμός Ανανά",
       "volume": "1L"
     },
     {
