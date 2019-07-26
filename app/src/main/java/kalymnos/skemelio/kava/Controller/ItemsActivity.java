@@ -24,8 +24,7 @@ import kalymnos.skemelio.kava.View.screen_items.ItemsScreenViewMvc;
 import kalymnos.skemelio.kava.View.screen_items.ItemsScreenViewMvcImpl;
 
 public class ItemsActivity extends AppCompatActivity
-        implements ItemsScreenViewMvc.OnSaveClickListener,
-        ItemsScreenViewMvc.OnItemQuantityChangeListener {
+        implements ItemsScreenViewMvc.OnItemQuantityChangeListener {
 
     private ItemsScreenViewMvc viewMvc;
     private Category category;
@@ -56,7 +55,6 @@ public class ItemsActivity extends AppCompatActivity
     private void initViewMvc() {
         viewMvc = new ItemsScreenViewMvcImpl(LayoutInflater.from(this), null);
         viewMvc.setOnItemQuantityChangeListener(this);
-        viewMvc.setOnSaveClickListener(this);
     }
 
     private void bindUi() {
@@ -123,17 +121,6 @@ public class ItemsActivity extends AppCompatActivity
         repo.save(getKeys(), quantities);
         setCategoryItemCheckVisibility();
         finish();
-    }
-
-    @Override
-    public void onSaveClick() {
-        repo.save(getKeys(), quantities);
-        setCategoryItemCheckVisibility();
-        if (allQuantitiesAreEmpty()) {
-            Snackbar.make(viewMvc.getRootView(), R.string.nothing_to_save, Snackbar.LENGTH_SHORT).show();
-        } else {
-            finish();
-        }
     }
 
     private String[] getKeys() {

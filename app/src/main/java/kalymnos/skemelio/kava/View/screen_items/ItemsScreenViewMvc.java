@@ -20,12 +20,6 @@ public interface ItemsScreenViewMvc extends ViewMvc {
 
     void setOnItemQuantityChangeListener(OnItemQuantityChangeListener listener);
 
-    interface OnSaveClickListener {
-        void onSaveClick();
-    }
-
-    void setOnSaveClickListener(OnSaveClickListener listener);
-
     void bindItems(List<Item> items);
 
     void bindQuantities(Quantity[] quantities);

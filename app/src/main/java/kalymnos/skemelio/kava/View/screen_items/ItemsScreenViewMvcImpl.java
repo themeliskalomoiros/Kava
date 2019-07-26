@@ -23,16 +23,10 @@ public class ItemsScreenViewMvcImpl implements ItemsScreenViewMvc {
     private FloatingActionButton save;
     private RecyclerView recyclerView;
     private ItemsAdapter adapter;
-    private OnSaveClickListener saveClickListener;
 
     public ItemsScreenViewMvcImpl(LayoutInflater inflater, ViewGroup parent) {
         root = inflater.inflate(R.layout.screen_items, parent, false);
         title = root.findViewById(R.id.title);
-        save = root.findViewById(R.id.save);
-        save.setOnClickListener(view -> {
-            if (saveClickListener != null)
-                saveClickListener.onSaveClick();
-        });
         setupRecyclerView();
     }
 
@@ -48,11 +42,6 @@ public class ItemsScreenViewMvcImpl implements ItemsScreenViewMvc {
     @Override
     public void setOnItemQuantityChangeListener(OnItemQuantityChangeListener listener) {
         adapter.setOnItemQuantityChangeListener(listener);
-    }
-
-    @Override
-    public void setOnSaveClickListener(OnSaveClickListener listener) {
-        saveClickListener = listener;
     }
 
     @Override
