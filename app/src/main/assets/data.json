@@ -135,6 +135,18 @@
       "volume": "330ml"
     },
     {
+      "categoryId": 12,
+      "picturePath": "",
+      "title": "Gordon's Space",
+      "volume": "330ml"
+    },
+    {
+      "categoryId": 12,
+      "picturePath": "",
+      "title": "Smirnoff Ice",
+      "volume": "330ml"
+    },
+    {
       "categoryId": 8,
       "picturePath": "",
       "title": "Baileys",
@@ -162,13 +174,7 @@
       "categoryId": 0,
       "picturePath": "",
       "title": "Beluga",
-      "volume": "700ml"
-    },
-    {
-      "categoryId": 0,
-      "picturePath": "",
-      "title": "Beluga",
-      "volume": "1L"
+      "volume": ""
     },
     {
       "categoryId": 0,
@@ -293,11 +299,11 @@
     {
       "categoryId": 10,
       "picturePath": "",
-      "title": "Three Cents Τόνικ",
+      "title": "Three Cents Σόδα",
       "volume": "Κουτάκι"
     },
     {
-      "categoryId": 0,
+      "categoryId": 8,
       "picturePath": "",
       "title": "Cointreau",
       "volume": ""
@@ -335,13 +341,13 @@
     {
       "categoryId": 1,
       "picturePath": "",
-      "title": "Dimple 15",
+      "title": "Dimple",
       "volume": "700ml"
     },
     {
       "categoryId": 1,
       "picturePath": "",
-      "title": "Dimple 15",
+      "title": "Dimple",
       "volume": "1L"
     },
     {
@@ -393,6 +399,12 @@
       "volume": "1L"
     },
     {
+      "categoryId": 2,
+      "picturePath": "",
+      "title": "Grace Gin",
+      "volume": ""
+    },
+    {
       "categoryId": 8,
       "picturePath": "",
       "title": "Grand Marnier Κίτρινο",
@@ -432,7 +444,13 @@
       "categoryId": 3,
       "picturePath": "",
       "title": "Havana Club 7",
-      "volume": "700ml"
+      "volume": ""
+    },
+    {
+      "categoryId": 3,
+      "picturePath": "",
+      "title": "Havana Club μαύρη",
+      "volume": ""
     },
     {
       "categoryId": 7,
@@ -444,7 +462,7 @@
       "categoryId": 2,
       "picturePath": "",
       "title": "Hendrick's",
-      "volume": "700ml"
+      "volume": ""
     },
     {
       "categoryId": 1,
@@ -503,6 +521,18 @@
     {
       "categoryId": 1,
       "picturePath": "",
+      "title": "Johnnie Walker Red Label",
+      "volume": "700ml"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
+      "title": "Johnnie Walker Red Label",
+      "volume": "1L"
+    },
+    {
+      "categoryId": 1,
+      "picturePath": "",
       "title": "Johnnie Walker Black Label",
       "volume": "700ml"
     },
@@ -522,18 +552,6 @@
       "categoryId": 1,
       "picturePath": "",
       "title": "Johnnie Walker Blender's Batch - Red Rye Finish",
-      "volume": "1L"
-    },
-    {
-      "categoryId": 1,
-      "picturePath": "",
-      "title": "Johnnie Walker Red Label",
-      "volume": "700ml"
-    },
-    {
-      "categoryId": 1,
-      "picturePath": "",
-      "title": "Johnnie Walker Red Label",
       "volume": "1L"
     },
     {
@@ -603,9 +621,15 @@
       "volume": "1L"
     },
     {
-      "categoryId": 11,
+      "categoryId": 8,
       "picturePath": "",
       "title": "Monin Mandel Sirup",
+      "volume": ""
+    },
+    {
+      "categoryId": 8,
+      "picturePath": "",
+      "title": "Γρεναδίνη",
       "volume": ""
     },
     {
@@ -643,12 +667,6 @@
       "picturePath": "",
       "title": "Smirnoff North",
       "volume": "700ml"
-    },
-    {
-      "categoryId": 0,
-      "picturePath": "",
-      "title": "Smirnoff North",
-      "volume": "1L"
     },
     {
       "categoryId": 8,
@@ -809,7 +827,7 @@
     {
       "categoryId": 8,
       "picturePath": "",
-      "title": "Molinari Caffe Sambuca Μαύρη",
+      "title": "Sambuca Molinari Μαύρη",
       "volume": ""
     },
     {
@@ -831,7 +849,7 @@
       "volume": ""
     },
     {
-      "categoryId": 11,
+      "categoryId": 10,
       "picturePath": "",
       "title": "Νερό Ανθρακούχο",
       "volume": "Μικρό"
@@ -963,6 +981,24 @@
       "volume": "πακέτο"
     },
     {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Ποτήρια",
+      "volume": "σωλήνες"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Ποτήρια",
+      "volume": "old fashion"
+    },
+    {
+      "categoryId": 11,
+      "picturePath": "",
+      "title": "Ποτήρια",
+      "volume": "σφηνάκια"
+    },
+    {
       "categoryId": 9,
       "picturePath": "",
       "title": "Χυμός Ανανά",
@@ -990,6 +1026,12 @@
       "categoryId": 9,
       "picturePath": "",
       "title": "Χυμός Πορτοκάλι",
+      "volume": ""
+    },
+    {
+      "categoryId": 9,
+      "picturePath": "",
+      "title": "Χυμός Γρέιπφρουτ",
       "volume": ""
     },
     {
