@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,10 +35,17 @@ public class ItemsActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initRepo();
         initCategory();
-        initQuantities();
+        initQuantities(savedInstanceState);
         initViewMvc();
         bindUi();
+    }
+
+    private void initRepo() {
+        SharedPreferences categoryPrefs = getSharedPreferences(Category.class.getSimpleName(), MODE_PRIVATE);
+        SharedPreferences itemPrefs = getSharedPreferences(Item.class.getSimpleName(), MODE_PRIVATE);
+        repo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
     }
 
     private void initCategory() {
@@ -45,11 +53,12 @@ public class ItemsActivity extends AppCompatActivity
         category = (Category) data.getParcelable(Category.class.getSimpleName());
     }
 
-    private void initQuantities() {
-        SharedPreferences categoryPrefs = getSharedPreferences(Category.class.getSimpleName(), MODE_PRIVATE);
-        SharedPreferences itemPrefs = getSharedPreferences(Item.class.getSimpleName(), MODE_PRIVATE);
-        repo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
-        quantities = repo.getQuantitiesOf(category.getItemList());
+    private void initQuantities(Bundle savedInstanceState) {
+        if (savedInstanceState != null && savedInstanceState.containsKey(Quantity.class.getSimpleName())) {
+            quantities = (Quantity[]) savedInstanceState.getSerializable(Quantity.class.getSimpleName());
+        } else {
+            quantities = repo.getQuantitiesOf(category.getItemList());
+        }
     }
 
     private void initViewMvc() {
@@ -63,6 +72,14 @@ public class ItemsActivity extends AppCompatActivity
         viewMvc.bindTitle(getString(R.string.take_notes_on_items) + String.format(" \"%s\"", category.title));
         viewMvc.bindItems(category.getItemList());
         viewMvc.bindQuantities(quantities);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (quantities != null && quantities.length > 0) {
+            outState.putSerializable(Quantity.class.getSimpleName(), quantities);
+        }
     }
 
     @Override
