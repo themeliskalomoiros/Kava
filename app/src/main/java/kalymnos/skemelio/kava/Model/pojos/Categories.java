@@ -56,9 +56,9 @@ public final class Categories {
         return new Category(id, title, items);
     }
 
-    public static List<Item> allItemsOf(Category[] categories){
+    public static List<Item> allItemsOf(Category[] categories) {
         List<Item> items = new ArrayList<>();
-        for (Category c : categories){
+        for (Category c : categories) {
             items.addAll(c.getItemList());
         }
         return items;

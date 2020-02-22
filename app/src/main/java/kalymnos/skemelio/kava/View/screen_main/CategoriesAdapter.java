@@ -74,9 +74,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
         void bind(String name, int id) {
             this.name.setText(name);
-            if (repo.isCategorySet(id)){
+            if (repo.isCategorySet(id)) {
                 checked.setVisibility(View.VISIBLE);
-            }else{
+            } else {
                 checked.setVisibility(View.INVISIBLE);
             }
         }

@@ -9,6 +9,7 @@ public interface ViewMvc {
      * to the user.<br>
      * The returned Android View might be used by an MVC Controller in order to query or alter the
      * properties of either the root Android View itself, or any of its child Android View's.
+     *
      * @return root Android View of this MVC View
      */
     public View getRootView();
@@ -20,6 +21,7 @@ public interface ViewMvc {
      * The main use case for this method is exporting the state of editable Android Views underlying
      * the MVC view. This information can be used by MVC controller for e.g. processing user's
      * input or saving view's state during lifecycle events.
+     *
      * @return Bundle containing the state of this MVC View, or null if the view has no state
      */
     public Bundle getViewState();

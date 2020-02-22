@@ -2,6 +2,7 @@ package kalymnos.skemelio.kava.Model.pojos;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import java.util.List;
 
 public class Category implements Parcelable {

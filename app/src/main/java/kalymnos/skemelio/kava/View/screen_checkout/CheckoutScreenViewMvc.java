@@ -4,7 +4,7 @@ import kalymnos.skemelio.kava.View.ViewMvc;
 
 public interface CheckoutScreenViewMvc extends ViewMvc {
 
-    interface OnShareClickListener{
+    interface OnShareClickListener {
         void onShareClick();
     }
 

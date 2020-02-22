@@ -1,19 +1,13 @@
 package kalymnos.skemelio.kava.Controller;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.material.snackbar.Snackbar;
-
-import java.util.ArrayList;
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import kalymnos.skemelio.kava.Model.persistance.QuantityRepo;
 import kalymnos.skemelio.kava.Model.persistance.QuantityRepoImpl;

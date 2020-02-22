@@ -1,12 +1,5 @@
 package kalymnos.skemelio.kava.Controller;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.AsyncTaskLoader;
-import androidx.loader.content.Loader;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,6 +8,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.AsyncTaskLoader;
+import androidx.loader.content.Loader;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_note:
-                if (repo.isEmpty(categories)){
-                    Snackbar.make(viewMvc.getRootView(),getString(R.string.kava_not_ready),Snackbar.LENGTH_SHORT).show();
-                }else{
+                if (repo.isEmpty(categories)) {
+                    Snackbar.make(viewMvc.getRootView(), getString(R.string.kava_not_ready), Snackbar.LENGTH_SHORT).show();
+                } else {
                     Intent intent = packIntentWithCategories();
                     startActivity(intent);
                 }
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity
             Category c = categories.get(i);
             parcelables[i] = c;
         }
-        intent.putExtra(Category.class.getSimpleName(),parcelables);
+        intent.putExtra(Category.class.getSimpleName(), parcelables);
         return intent;
     }
 

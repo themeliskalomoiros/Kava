@@ -8,7 +8,7 @@ import kalymnos.skemelio.kava.View.ViewMvc;
 public interface MainScreenViewMvc extends ViewMvc {
     void bind(List<Category> categories);
 
-    interface OnCategoryClickListener{
+    interface OnCategoryClickListener {
         void onCategoryClick(int position);
     }
 

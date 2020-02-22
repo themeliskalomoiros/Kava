@@ -62,7 +62,7 @@ public class CheckoutActivity extends AppCompatActivity implements CheckoutScree
     }
 
     private Intent getShareIntent() {
-        String finalText = formatter.createSharableText(viewMvc.getTitle(), Time.getCurrentTime(),viewMvc.getData());
+        String finalText = formatter.createSharableText(viewMvc.getTitle(), Time.getCurrentTime(), viewMvc.getData());
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));

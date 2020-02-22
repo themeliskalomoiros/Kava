@@ -2,12 +2,8 @@ package kalymnos.skemelio.kava.Model.pojos;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
-import java.io.Serializable;
-import java.util.Comparator;
-
-public class Item implements Parcelable, Comparable<Item>{
+public class Item implements Parcelable, Comparable<Item> {
     public final int categoryId;
     public final String picturePath;
     public final String title;

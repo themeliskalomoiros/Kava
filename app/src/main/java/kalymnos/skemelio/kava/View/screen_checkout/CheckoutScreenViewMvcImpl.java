@@ -21,7 +21,7 @@ public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
         root = inflater.inflate(R.layout.screen_checkout, parent, false);
         share = root.findViewById(R.id.share);
         titleInput = root.findViewById(R.id.title);
-        data =root.findViewById(R.id.items);
+        data = root.findViewById(R.id.items);
     }
 
     @Override

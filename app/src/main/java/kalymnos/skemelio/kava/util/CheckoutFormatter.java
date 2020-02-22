@@ -46,7 +46,7 @@ public class CheckoutFormatter {
             Item current = itemsToPrint.get(i);
             Item previous = itemsToPrint.get(i - 1);
             if (current.categoryId != previous.categoryId) {
-                builder.append("\n"+getCategoryTitleFrom(current.categoryId) + "\n");
+                builder.append("\n" + getCategoryTitleFrom(current.categoryId) + "\n");
             }
             builder.append(String.format(" *%s, %s\n", itemsToPrint.get(i).toString(), quantitiesToPrint.get(i).getTextWithoutEmptyValues(containerLabel, atomLabel)));
         }
@@ -67,7 +67,7 @@ public class CheckoutFormatter {
     public String createSharableText(String title, String date, String kava) {
         StringBuilder builder = new StringBuilder();
         builder.append(title + "\n");
-        builder.append("("+date+")" + "\n\n");
+        builder.append("(" + date + ")" + "\n\n");
         builder.append(kava);
         return builder.toString();
     }
