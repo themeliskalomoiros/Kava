@@ -14,13 +14,11 @@ import kalymnos.skemelio.kava.R;
 public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
     private View root;
     private FloatingActionButton share;
-    private EditText titleInput;
     private TextView data;
 
     public CheckoutScreenViewMvcImpl(LayoutInflater inflater, ViewGroup parent) {
         root = inflater.inflate(R.layout.screen_checkout, parent, false);
         share = root.findViewById(R.id.share);
-        titleInput = root.findViewById(R.id.title);
         data = root.findViewById(R.id.items);
     }
 
@@ -28,11 +26,6 @@ public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
     public void setOnShareClickListener(OnShareClickListener listener) {
         if (listener != null)
             share.setOnClickListener(v -> listener.onShareClick());
-    }
-
-    @Override
-    public String getTitle() {
-        return titleInput.getText().toString().trim();
     }
 
     @Override

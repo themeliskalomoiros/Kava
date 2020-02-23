@@ -5,28 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryColor"
-    tools:context=".Controller.MainActivity">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="top"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="4dp"
-            android:lines="1"
-            android:textColor="@color/primaryTextColor"
-            android:hint="@string/insert_title"
-            android:focusable="auto"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+    tools:context=".Controller.MainActivity"
+    android:paddingTop="@dimen/main_content_top_padding">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -50,8 +30,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/title"
                 tools:text="* Absolut 700 ml, 1 κιβώτιο και 3 μονάδες" />
         </ScrollView>
-
-    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/share"

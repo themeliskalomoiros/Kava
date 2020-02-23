@@ -10,7 +10,5 @@ public interface CheckoutScreenViewMvc extends ViewMvc {
 
     void setOnShareClickListener(OnShareClickListener listener);
 
-    String getTitle();
-
     void bindData(String data);
 }

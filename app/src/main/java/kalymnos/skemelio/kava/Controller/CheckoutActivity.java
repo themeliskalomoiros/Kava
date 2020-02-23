@@ -5,7 +5,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import kalymnos.skemelio.kava.Model.persistance.QuantityRepo;
@@ -69,6 +72,21 @@ public class CheckoutActivity
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.checkout, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_add_title) {
+            // TODO: add title functionality
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void onShareClick() {
         Intent share = getShareIntent();
         startActivity(Intent.createChooser(share, getString(R.string.share_the_noted_items)));
@@ -76,7 +94,7 @@ public class CheckoutActivity
 
     private Intent getShareIntent() {
         String finalText = formatter.createTextToShare(
-                            viewMvc.getTitle(),
+                            null, // TODO: Add title here
                             Time.getCurrentTime(),
                             formatter.formatKava());
         Intent intent = new Intent(Intent.ACTION_SEND);
