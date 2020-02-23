@@ -14,6 +14,8 @@ public interface CheckoutScreenViewMvc extends ViewMvc {
 
     void bindTitle(String title);
 
+    String getTitle();
+
     void showTitle();
 
     void hideTitle();

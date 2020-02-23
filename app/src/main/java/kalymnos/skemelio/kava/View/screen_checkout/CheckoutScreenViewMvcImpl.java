@@ -39,6 +39,11 @@ public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
     }
 
     @Override
+    public String getTitle() {
+        return title.getText().toString();
+    }
+
+    @Override
     public void showTitle() {
         title.setVisibility(View.VISIBLE);
     }

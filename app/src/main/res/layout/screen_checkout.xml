@@ -20,7 +20,7 @@
             android:textColor="@color/primaryTextColor"
             android:textAlignment="center"
             android:textSize="@dimen/main_label"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <ScrollView
             android:layout_width="match_parent"

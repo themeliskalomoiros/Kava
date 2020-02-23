@@ -1,5 +1,6 @@
 package kalymnos.skemelio.kava.Controller;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,10 +8,14 @@ import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.time.Duration;
+
+import kalymnos.skemelio.kava.Dialogs.AddTitleDialog;
 import kalymnos.skemelio.kava.Model.persistance.QuantityRepo;
 import kalymnos.skemelio.kava.Model.persistance.QuantityRepoImpl;
 import kalymnos.skemelio.kava.Model.pojos.Category;
@@ -23,7 +28,8 @@ import kalymnos.skemelio.kava.util.Time;
 
 public class CheckoutActivity
         extends AppCompatActivity
-        implements CheckoutScreenViewMvc.OnShareClickListener {
+        implements CheckoutScreenViewMvc.OnShareClickListener,
+        AddTitleDialog.AddTitleDialogListener {
 
     private CheckoutScreenViewMvc viewMvc;
     private Category[] categories;
@@ -81,6 +87,10 @@ public class CheckoutActivity
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_add_title) {
             // TODO: add title functionality
+            AddTitleDialog d = new AddTitleDialog();
+            d.setAddTitleDialogListener(this);
+            String tag = "" + d.hashCode();
+            d.show(getSupportFragmentManager(), tag);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -94,7 +104,7 @@ public class CheckoutActivity
 
     private Intent getShareIntent() {
         String finalText = formatter.createTextToShare(
-                null, // TODO: Add title here
+                viewMvc.getTitle(), // TODO: Add title here
                 Time.getCurrentTime(),
                 formatter.formatKava());
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -102,5 +112,15 @@ public class CheckoutActivity
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
         intent.putExtra(Intent.EXTRA_TEXT, finalText);
         return intent;
+    }
+
+    @Override
+    public void onDialogPositiveClick(String title) {
+        viewMvc.bindTitle(title.trim());
+        if (title==null || title.length()==0){
+            viewMvc.hideTitle();
+        }else{
+            viewMvc.showTitle();
+        }
     }
 }
