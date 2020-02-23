@@ -22,15 +22,15 @@
     },
     {
       "id": 5,
-      "title": "Οίνος"
+      "title": "Κρασιά"
     },
     {
       "id": 6,
-      "title": "Ελληνικά Ποτά"
+      "title": "Ελληνικά"
     },
     {
       "id": 7,
-      "title": "Μπύρα"
+      "title": "Μπύρες"
     },
     {
       "id": 8,
@@ -185,31 +185,31 @@
     {
       "categoryId": 5,
       "picturePath": "",
-      "title": "BiancoNero Οίνος Κόκκινος Ξηρός",
+      "title": "BiancoNero Κόκκινο Ξηρό",
       "volume": "330ml"
     },
     {
       "categoryId": 5,
       "picturePath": "",
-      "title": "BiancoNero Οίνος Λευκός Αφρώδες",
+      "title": "BiancoNero Λευκό Αφρώδες",
       "volume": "330ml"
     },
     {
       "categoryId": 5,
       "picturePath": "",
-      "title": "BiancoNero Οίνος Λευκός Ξηρός",
+      "title": "BiancoNero Λευκό Ξηρό",
       "volume": "330ml"
     },
     {
       "categoryId": 5,
       "picturePath": "",
-      "title": "BiancoNero Οίνος Ροζέ Αφρώδες",
+      "title": "BiancoNero Ροζέ Αφρώδες",
       "volume": "330ml"
     },
     {
       "categoryId": 5,
       "picturePath": "",
-      "title": "BiancoNero Οίνος Ροζέ Ξηρός",
+      "title": "BiancoNero Ροζέ Ξηρός",
       "volume": "330ml"
     },
     {

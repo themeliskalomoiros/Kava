@@ -27,7 +27,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/choose_category"
+        android:text="@string/drinks"
         android:textColor="@color/primaryTextColor"
         android:textAlignment="center"
         android:paddingTop="@dimen/default_margin"
