@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/primaryTextColor"
+    android:background="@color/primaryLightColor"
     android:orientation="vertical"
     android:paddingLeft="@dimen/half_margin"
-    android:paddingTop="@dimen/half_margin"
     android:paddingRight="@dimen/half_margin">
 
     <TextView
@@ -16,11 +15,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:textColor="@color/secondaryTextColor"
         android:textSize="@dimen/item_title"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/remove_button"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +63,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:textSize="@dimen/item_subtitle"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/title"
         app:layout_constraintStart_toStartOf="@+id/title"
