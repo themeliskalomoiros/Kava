@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="175dp"
-    android:background="@color/colorPrimaryLight">
+    android:background="@color/primaryLightColor">
 
     <ImageView
         android:id="@+id/checked"
@@ -12,7 +12,7 @@
         android:layout_gravity="top|right"
         android:layout_margin="@dimen/half_margin"
         android:visibility="invisible"
-        android:background="@color/colorAccentLight"
+        android:background="@color/secondaryLightColor"
         android:src="@drawable/ic_check_white_24dp"
          />
 
@@ -28,6 +28,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/half_margin"
-        android:background="@color/colorPrimary"
+        android:background="@color/primaryColor"
         android:layout_gravity="bottom"/>
 </FrameLayout>
