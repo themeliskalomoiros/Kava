@@ -23,7 +23,7 @@ public class CheckoutFormatter {
         this.containerLabel = containerLabel;
     }
 
-    public String createKava() {
+    public String formatKava() {
         StringBuilder builder = new StringBuilder();
         List<Item> allItems = Categories.allItemsOf(categories);
         List<Item> itemsToPrint = new ArrayList<>();
@@ -64,7 +64,7 @@ public class CheckoutFormatter {
         return null;
     }
 
-    public String createSharableText(String title, String date, String kava) {
+    public String createTextToShare(String title, String date, String kava) {
         StringBuilder builder = new StringBuilder();
         builder.append(title + "\n");
         builder.append("(" + date + ")" + "\n\n");

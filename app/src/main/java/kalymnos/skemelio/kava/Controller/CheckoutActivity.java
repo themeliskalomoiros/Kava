@@ -33,7 +33,7 @@ public class CheckoutActivity extends AppCompatActivity implements CheckoutScree
         initCategories();
         formatter = new CheckoutFormatter(repo, categories, getString(R.string.atoms), getString(R.string.containers));
         setContentView(viewMvc.getRootView());
-        viewMvc.bindData(formatter.createKava());
+        viewMvc.bindData(formatter.formatKava());
     }
 
     private void initViewMvc() {
@@ -62,7 +62,7 @@ public class CheckoutActivity extends AppCompatActivity implements CheckoutScree
     }
 
     private Intent getShareIntent() {
-        String finalText = formatter.createSharableText(viewMvc.getTitle(), Time.getCurrentTime(), viewMvc.getData());
+        String finalText = formatter.createTextToShare(viewMvc.getTitle(), Time.getCurrentTime(), viewMvc.getData());
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));

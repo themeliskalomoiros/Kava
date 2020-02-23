@@ -6,10 +6,10 @@
     <string name="containers">κιβώτια:</string>
     <string name="atoms">μονάδες:</string>
     <string name="delete">Διαγραφή</string>
-    <string name="clear_categories">Επαναφορά κάβας</string>
+    <string name="clear_categories">Επαναφορά</string>
     <string name="saved">Αποθηκεύτηκε</string>
     <string name="nothing_to_save">Τίποτα προς αποθήκευση</string>
     <string name="insert_title">Τίτλος Κάβας</string>
     <string name="title">Τίτλος</string>
-    <string name="kava_not_ready">Δεν έχεις ετοιμάσει Κάβα</string>
+    <string name="kava_not_ready">Δεν έχει ετοιμαστεί Κάβα</string>
 </resources>
