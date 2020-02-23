@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -61,7 +62,7 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder> {
 
     class ItemsHolder extends RecyclerView.ViewHolder {
         private TextView title, subtitle;
-        private ImageButton plus, minus;
+        private ImageView plus, minus;
 
         public ItemsHolder(@NonNull View itemView) {
             super(itemView);

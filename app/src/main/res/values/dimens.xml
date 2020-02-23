@@ -7,5 +7,7 @@
     <dimen name="default_margin">8dp</dimen>
     <dimen name="item_title">24sp</dimen>
     <dimen name="item_subtitle">18sp</dimen>
+    <dimen name="checkout_item_text">20sp</dimen>
     <dimen name="main_content_top_padding">12dp</dimen>
+    <dimen name="elevation">2dp</dimen>
 </resources>

@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="140dp"
     android:background="@color/primaryLightColor"
-    android:layout_margin="@dimen/half_margin">
+    android:layout_margin="@dimen/half_margin"
+    android:elevation="@dimen/elevation"
+    >
 
     <ImageView
         android:id="@+id/checked"
@@ -19,19 +21,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toEndOf="@+id/title"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:textColor="@color/primaryTextColor"
         android:textSize="@dimen/category_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Βότκα" />
+        tools:text="Βότκα"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
