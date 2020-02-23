@@ -23,6 +23,4 @@ public interface ItemsScreenViewMvc extends ViewMvc {
     void bindItems(List<Item> items);
 
     void bindQuantities(Quantity[] quantities);
-
-    void bindTitle(String title);
 }

@@ -57,11 +57,6 @@ public class ItemsScreenViewMvcImpl implements ItemsScreenViewMvc {
     }
 
     @Override
-    public void bindTitle(String title) {
-        this.title.setText(title);
-    }
-
-    @Override
     public View getRootView() {
         return root;
     }
