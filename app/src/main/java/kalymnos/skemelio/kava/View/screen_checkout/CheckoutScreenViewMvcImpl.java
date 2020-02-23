@@ -36,11 +36,6 @@ public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
     }
 
     @Override
-    public String getData() {
-        return data.getText().toString();
-    }
-
-    @Override
     public void bindData(String data) {
         this.data.setText(data);
     }

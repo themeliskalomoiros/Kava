@@ -16,7 +16,11 @@ public class CheckoutFormatter {
     private final QuantityRepo repo;
     private final Category[] categories;
 
-    public CheckoutFormatter(QuantityRepo repo, Category[] categories, String atomLabel, String containerLabel) {
+    public CheckoutFormatter(
+            QuantityRepo repo,
+            Category[] categories,
+            String atomLabel,
+            String containerLabel) {
         this.repo = repo;
         this.categories = categories;
         this.atomLabel = atomLabel;

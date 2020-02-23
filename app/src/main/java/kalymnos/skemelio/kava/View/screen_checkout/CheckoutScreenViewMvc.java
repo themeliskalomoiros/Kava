@@ -12,7 +12,5 @@ public interface CheckoutScreenViewMvc extends ViewMvc {
 
     String getTitle();
 
-    String getData();
-
     void bindData(String data);
 }

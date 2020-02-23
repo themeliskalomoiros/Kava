@@ -18,42 +18,54 @@ import kalymnos.skemelio.kava.View.screen_checkout.CheckoutScreenViewMvcImpl;
 import kalymnos.skemelio.kava.util.CheckoutFormatter;
 import kalymnos.skemelio.kava.util.Time;
 
-public class CheckoutActivity extends AppCompatActivity implements CheckoutScreenViewMvc.OnShareClickListener {
+public class CheckoutActivity
+        extends AppCompatActivity
+        implements CheckoutScreenViewMvc.OnShareClickListener {
 
     private CheckoutScreenViewMvc viewMvc;
     private Category[] categories;
-    private QuantityRepo repo;
     private CheckoutFormatter formatter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initViewMvc();
-        initRepo();
         initCategories();
-        formatter = new CheckoutFormatter(repo, categories, getString(R.string.atoms), getString(R.string.containers));
-        setContentView(viewMvc.getRootView());
-        viewMvc.bindData(formatter.formatKava());
+        initFormatter();
+        setupActivityLayout();
+    }
+
+    private void initCategories() {
+        Parcelable[] parcels =
+                getIntent().getParcelableArrayExtra(Category.class.getSimpleName());
+        categories = new Category[parcels.length];
+        for (int i = 0; i < parcels.length; i++) {
+            categories[i] = (Category) parcels[i];
+        }
+    }
+
+    private void initFormatter() {
+        SharedPreferences categoryPrefs =
+                getSharedPreferences(Category.class.getSimpleName(), MODE_PRIVATE);
+        SharedPreferences itemPrefs =
+                getSharedPreferences(Item.class.getSimpleName(), MODE_PRIVATE);
+        QuantityRepo repo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
+        formatter = new CheckoutFormatter(
+                repo,
+                categories,
+                getString(R.string.atoms),
+                getString(R.string.containers));
+    }
+
+    private void setupActivityLayout() {
+        initViewMvc();
         getSupportActionBar().setTitle(R.string.checkout_send);
+        setContentView(viewMvc.getRootView());
     }
 
     private void initViewMvc() {
         viewMvc = new CheckoutScreenViewMvcImpl(LayoutInflater.from(this), null);
         viewMvc.setOnShareClickListener(this);
-    }
-
-    private void initRepo() {
-        SharedPreferences categoryPrefs = getSharedPreferences(Category.class.getSimpleName(), MODE_PRIVATE);
-        SharedPreferences itemPrefs = getSharedPreferences(Item.class.getSimpleName(), MODE_PRIVATE);
-        repo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
-    }
-
-    private void initCategories() {
-        Parcelable[] parcels = getIntent().getParcelableArrayExtra(Category.class.getSimpleName());
-        categories = new Category[parcels.length];
-        for (int i = 0; i < parcels.length; i++) {
-            categories[i] = (Category) parcels[i];
-        }
+        viewMvc.bindData(formatter.formatKava());
     }
 
     @Override
@@ -63,7 +75,10 @@ public class CheckoutActivity extends AppCompatActivity implements CheckoutScree
     }
 
     private Intent getShareIntent() {
-        String finalText = formatter.createTextToShare(viewMvc.getTitle(), Time.getCurrentTime(), viewMvc.getData());
+        String finalText = formatter.createTextToShare(
+                            viewMvc.getTitle(),
+                            Time.getCurrentTime(),
+                            formatter.formatKava());
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
