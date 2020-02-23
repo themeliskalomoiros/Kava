@@ -15,11 +15,13 @@ public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
     private View root;
     private FloatingActionButton share;
     private TextView data;
+    private TextView title;
 
     public CheckoutScreenViewMvcImpl(LayoutInflater inflater, ViewGroup parent) {
         root = inflater.inflate(R.layout.screen_checkout, parent, false);
         share = root.findViewById(R.id.share);
         data = root.findViewById(R.id.items);
+        title = root.findViewById(R.id.title);
     }
 
     @Override
@@ -31,6 +33,21 @@ public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
     @Override
     public void bindData(String data) {
         this.data.setText(data);
+    }
+
+    @Override
+    public void bindTitle(String text) {
+        title.setText(text);
+    }
+
+    @Override
+    public void showTitle() {
+        title.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideTitle() {
+        title.setVisibility(View.GONE);
     }
 
     @Override

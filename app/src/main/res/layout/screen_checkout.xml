@@ -8,6 +8,20 @@
     tools:context=".Controller.MainActivity"
     android:paddingTop="@dimen/main_content_top_padding">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primaryTextColor"
+            android:textAlignment="center"
+            android:textSize="@dimen/main_label"
+            android:visibility="gone"/>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -30,6 +44,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/title"
                 tools:text="* Absolut 700 ml, 1 κιβώτιο και 3 μονάδες" />
         </ScrollView>
+    </LinearLayout>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/share"
