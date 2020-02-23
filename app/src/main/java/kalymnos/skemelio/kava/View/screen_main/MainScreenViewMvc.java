@@ -6,11 +6,11 @@ import kalymnos.skemelio.kava.Model.pojos.Category;
 import kalymnos.skemelio.kava.View.ViewMvc;
 
 public interface MainScreenViewMvc extends ViewMvc {
-    void bind(List<Category> categories);
-
     interface OnCategoryClickListener {
         void onCategoryClick(int position);
     }
+
+    void bind(List<Category> categories);
 
     void setOnCategoryClickListener(OnCategoryClickListener listener);
 
