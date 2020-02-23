@@ -14,4 +14,9 @@
     <string name="kava_not_ready">Δεν έχει ετοιμαστεί Κάβα</string>
     <string name="checkout_send">Ταμείο/Αποστολή</string>
     <string name="add_title">Πρόσθεσε τίτλο</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add">Προσθήκη</string>
+    <string name="cancel">Άκυρο</string>
 </resources>

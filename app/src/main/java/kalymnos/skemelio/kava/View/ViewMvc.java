@@ -1,6 +1,5 @@
 package kalymnos.skemelio.kava.View;
 
-import android.os.Bundle;
 import android.view.View;
 
 public interface ViewMvc {

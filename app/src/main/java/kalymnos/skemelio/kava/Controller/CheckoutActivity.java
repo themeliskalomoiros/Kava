@@ -94,9 +94,9 @@ public class CheckoutActivity
 
     private Intent getShareIntent() {
         String finalText = formatter.createTextToShare(
-                            null, // TODO: Add title here
-                            Time.getCurrentTime(),
-                            formatter.formatKava());
+                null, // TODO: Add title here
+                Time.getCurrentTime(),
+                formatter.formatKava());
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
