@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Η Κάβα</string>
     <string name="drinks">Ποτά</string>
-    <string name="take_notes_on_items">Σημείωσε </string>
+    <string name="note">Σημείωσε </string>
     <string name="share_the_noted_items">Μοιράσου την Κάβα</string>
     <string name="containers">κιβώτια:</string>
     <string name="atoms">μονάδες:</string>
@@ -9,7 +9,8 @@
     <string name="clear_categories">Επαναφορά</string>
     <string name="saved">Αποθηκεύτηκε</string>
     <string name="nothing_to_save">Τίποτα προς αποθήκευση</string>
-    <string name="insert_title">Τίτλος Κάβας</string>
+    <string name="insert_title">Πρόσθεσε τίτλο</string>
     <string name="title">Τίτλος</string>
     <string name="kava_not_ready">Δεν έχει ετοιμαστεί Κάβα</string>
+    <string name="checkout_send">Ταμείο/Αποστολή</string>
 </resources>

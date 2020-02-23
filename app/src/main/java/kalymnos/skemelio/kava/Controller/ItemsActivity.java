@@ -62,7 +62,7 @@ public class ItemsActivity extends AppCompatActivity
 
     private void bindUi() {
         setContentView(viewMvc.getRootView());
-        getSupportActionBar().setTitle(getString(R.string.take_notes_on_items) + String.format(" \"%s\"", category.title));
+        getSupportActionBar().setTitle(getString(R.string.note) + String.format(" \"%s\"", category.title));
         viewMvc.bindItems(category.getItemList());
         viewMvc.bindQuantities(quantities);
     }

@@ -34,6 +34,7 @@ public class CheckoutActivity extends AppCompatActivity implements CheckoutScree
         formatter = new CheckoutFormatter(repo, categories, getString(R.string.atoms), getString(R.string.containers));
         setContentView(viewMvc.getRootView());
         viewMvc.bindData(formatter.formatKava());
+        getSupportActionBar().setTitle(R.string.checkout_send);
     }
 
     private void initViewMvc() {
