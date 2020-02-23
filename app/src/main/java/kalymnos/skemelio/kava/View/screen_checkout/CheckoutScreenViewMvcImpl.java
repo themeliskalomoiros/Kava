@@ -54,9 +54,4 @@ public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
     public View getRootView() {
         return root;
     }
-
-    @Override
-    public Bundle getViewState() {
-        return null;
-    }
 }

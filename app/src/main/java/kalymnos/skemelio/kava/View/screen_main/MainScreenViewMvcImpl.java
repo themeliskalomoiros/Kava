@@ -62,9 +62,4 @@ public class MainScreenViewMvcImpl implements MainScreenViewMvc {
     public View getRootView() {
         return root;
     }
-
-    @Override
-    public Bundle getViewState() {
-        return null;
-    }
 }

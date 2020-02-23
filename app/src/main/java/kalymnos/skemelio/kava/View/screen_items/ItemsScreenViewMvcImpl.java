@@ -60,9 +60,4 @@ public class ItemsScreenViewMvcImpl implements ItemsScreenViewMvc {
     public View getRootView() {
         return root;
     }
-
-    @Override
-    public Bundle getViewState() {
-        return null;
-    }
 }
