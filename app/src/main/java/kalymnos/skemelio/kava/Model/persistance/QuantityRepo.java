@@ -19,6 +19,10 @@ public interface QuantityRepo {
 
     boolean isEmpty(List<Category> categories);
 
+    boolean isEmpty(Category category);
+
+    boolean isEmpty(Item item);
+
     Quantity[] getQuantitiesOf(List<Item> items);
 
     Quantity getQuantityOf(Item item);

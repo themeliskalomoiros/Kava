@@ -1,5 +1,8 @@
 package kalymnos.skemelio.kava.View.screen_checkout;
 
+import java.util.List;
+
+import kalymnos.skemelio.kava.Model.pojos.Category;
 import kalymnos.skemelio.kava.View.ViewMvc;
 
 public interface CheckoutScreenViewMvc extends ViewMvc {
@@ -10,7 +13,7 @@ public interface CheckoutScreenViewMvc extends ViewMvc {
 
     void setOnShareClickListener(OnShareClickListener listener);
 
-    void bindData(String data);
+    void bind(List<Category> categories);
 
     void bindTitle(String title);
 

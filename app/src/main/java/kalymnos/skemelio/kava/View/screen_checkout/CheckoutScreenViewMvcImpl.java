@@ -5,21 +5,37 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.List;
+
+import kalymnos.skemelio.kava.Model.pojos.Category;
 import kalymnos.skemelio.kava.R;
 
 public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
     private View root;
     private FloatingActionButton share;
-    private TextView data;
     private TextView title;
+    private RecyclerView items;
+    private CheckoutItemAdapter adapter;
 
     public CheckoutScreenViewMvcImpl(LayoutInflater inflater, ViewGroup parent) {
         root = inflater.inflate(R.layout.screen_checkout, parent, false);
         share = root.findViewById(R.id.share);
-        data = root.findViewById(R.id.items);
         title = root.findViewById(R.id.title);
+        setupRecyclerView();
+    }
+
+    private void setupRecyclerView() {
+        items = root.findViewById(R.id.items);
+        adapter = new CheckoutItemAdapter(root.getContext());
+        items.setAdapter(adapter);
+        LinearLayoutManager lm = new LinearLayoutManager(root.getContext());
+        items.setLayoutManager(lm);
+        items.setHasFixedSize(true);
     }
 
     @Override
@@ -29,8 +45,10 @@ public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
     }
 
     @Override
-    public void bindData(String data) {
-        this.data.setText(data);
+    public void bind(List<Category> categories) {
+        items.setItemViewCacheSize(categories.size());
+        adapter.add(categories);
+        adapter.notifyDataSetChanged();
     }
 
     @Override

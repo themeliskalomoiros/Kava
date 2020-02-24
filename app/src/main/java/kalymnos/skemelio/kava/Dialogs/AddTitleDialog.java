@@ -3,7 +3,6 @@ package kalymnos.skemelio.kava.Dialogs;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,7 +53,7 @@ public class AddTitleDialog extends DialogFragment {
                     listener.onDialogPositiveClick(et.getText().toString());
                 });
 
-        builder.setNegativeButton(R.string.cancel,null);
+        builder.setNegativeButton(R.string.cancel, null);
 
 
         return builder.create();

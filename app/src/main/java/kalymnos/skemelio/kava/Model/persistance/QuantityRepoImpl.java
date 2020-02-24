@@ -77,6 +77,22 @@ public class QuantityRepoImpl implements QuantityRepo {
     }
 
     @Override
+    public boolean isEmpty(Category category) {
+        Quantity[] quantities = getQuantitiesOf(category.getItems());
+        for (Quantity q : quantities) {
+            if (!q.isEmpty())
+                return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean isEmpty(Item item) {
+        Quantity q = getQuantityOf(item);
+        return q.isEmpty();
+    }
+
+    @Override
     public Quantity[] getQuantitiesOf(List<Item> items) {
         Quantity[] quantities = new Quantity[items.size()];
         for (int i = 0; i < items.size(); i++) {

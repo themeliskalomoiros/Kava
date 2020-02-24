@@ -51,7 +51,7 @@ public class ItemsActivity extends AppCompatActivity
         if (savedInstanceState != null && savedInstanceState.containsKey(Quantity.class.getSimpleName())) {
             quantities = (Quantity[]) savedInstanceState.getSerializable(Quantity.class.getSimpleName());
         } else {
-            quantities = repo.getQuantitiesOf(category.getItemList());
+            quantities = repo.getQuantitiesOf(category.getItems());
         }
     }
 
@@ -63,7 +63,7 @@ public class ItemsActivity extends AppCompatActivity
     private void bindUi() {
         setContentView(viewMvc.getRootView());
         getSupportActionBar().setTitle(getString(R.string.note) + String.format(" \"%s\"", category.title));
-        viewMvc.bindItems(category.getItemList());
+        viewMvc.bindItems(category.getItems());
         viewMvc.bindQuantities(quantities);
     }
 
@@ -134,9 +134,9 @@ public class ItemsActivity extends AppCompatActivity
     }
 
     private String[] getKeys() {
-        String[] keys = new String[category.getItemList().size()];
+        String[] keys = new String[category.getItems().size()];
         for (int i = 0; i < keys.length; i++) {
-            keys[i] = category.getItemList().get(i).toString();
+            keys[i] = category.getItems().get(i).toString();
         }
         return keys;
     }

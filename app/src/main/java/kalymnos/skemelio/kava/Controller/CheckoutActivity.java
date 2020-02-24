@@ -1,6 +1,5 @@
 package kalymnos.skemelio.kava.Controller;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,18 +7,19 @@ import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 import kalymnos.skemelio.kava.Dialogs.AddTitleDialog;
 import kalymnos.skemelio.kava.Model.persistance.QuantityRepo;
 import kalymnos.skemelio.kava.Model.persistance.QuantityRepoImpl;
 import kalymnos.skemelio.kava.Model.pojos.Category;
 import kalymnos.skemelio.kava.Model.pojos.Item;
+import kalymnos.skemelio.kava.Model.pojos.Quantity;
 import kalymnos.skemelio.kava.R;
 import kalymnos.skemelio.kava.View.screen_checkout.CheckoutScreenViewMvc;
 import kalymnos.skemelio.kava.View.screen_checkout.CheckoutScreenViewMvcImpl;
@@ -32,40 +32,48 @@ public class CheckoutActivity
         AddTitleDialog.AddTitleDialogListener {
 
     private CheckoutScreenViewMvc viewMvc;
-    private Category[] categories;
+    private List<Category> categories;
     private CheckoutFormatter formatter;
+    private QuantityRepo quantities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initQuantities();
         initCategories();
         initFormatter();
-        setupActivityLayout();
+        setupLayout();
+    }
+
+    private void initQuantities() {
+        SharedPreferences categoryPrefs =
+                getSharedPreferences(Category.class.getSimpleName(), MODE_PRIVATE);
+        SharedPreferences itemPrefs =
+                getSharedPreferences(Item.class.getSimpleName(), MODE_PRIVATE);
+        quantities = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
     }
 
     private void initCategories() {
         Parcelable[] parcels =
                 getIntent().getParcelableArrayExtra(Category.class.getSimpleName());
-        categories = new Category[parcels.length];
+        categories = new ArrayList<>();
         for (int i = 0; i < parcels.length; i++) {
-            categories[i] = (Category) parcels[i];
+            Category c = (Category) parcels[i];
+            if (!quantities.isEmpty(c)){
+                categories.add(c);
+            }
         }
     }
 
     private void initFormatter() {
-        SharedPreferences categoryPrefs =
-                getSharedPreferences(Category.class.getSimpleName(), MODE_PRIVATE);
-        SharedPreferences itemPrefs =
-                getSharedPreferences(Item.class.getSimpleName(), MODE_PRIVATE);
-        QuantityRepo repo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
         formatter = new CheckoutFormatter(
-                repo,
-                categories,
+                quantities,
+                categories.toArray(new Category[categories.size()]),
                 getString(R.string.atoms),
                 getString(R.string.containers));
     }
 
-    private void setupActivityLayout() {
+    private void setupLayout() {
         initViewMvc();
         getSupportActionBar().setTitle(R.string.checkout_send);
         setContentView(viewMvc.getRootView());
@@ -74,7 +82,7 @@ public class CheckoutActivity
     private void initViewMvc() {
         viewMvc = new CheckoutScreenViewMvcImpl(LayoutInflater.from(this), null);
         viewMvc.setOnShareClickListener(this);
-        viewMvc.bindData(formatter.formatKava());
+        viewMvc.bind(categories);
     }
 
     @Override
@@ -117,9 +125,9 @@ public class CheckoutActivity
     @Override
     public void onDialogPositiveClick(String title) {
         viewMvc.bindTitle(title.trim());
-        if (title==null || title.length()==0){
+        if (title == null || title.length() == 0) {
             viewMvc.hideTitle();
-        }else{
+        } else {
             viewMvc.showTitle();
         }
     }

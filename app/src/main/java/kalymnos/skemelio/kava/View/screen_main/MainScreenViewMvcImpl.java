@@ -29,9 +29,9 @@ public class MainScreenViewMvcImpl implements MainScreenViewMvc {
     private void setupRecyclerView() {
         categories = root.findViewById(R.id.categories);
         adapter = new CategoriesAdapter(root.getContext());
-        LinearLayoutManager layoutManager = new LinearLayoutManager(root.getContext());
         categories.setAdapter(adapter);
-        categories.setLayoutManager(layoutManager);
+        LinearLayoutManager lm = new LinearLayoutManager(root.getContext());
+        categories.setLayoutManager(lm);
         categories.setHasFixedSize(true);
     }
 

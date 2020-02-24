@@ -59,7 +59,7 @@ public final class Categories {
     public static List<Item> allItemsOf(Category[] categories) {
         List<Item> items = new ArrayList<>();
         for (Category c : categories) {
-            items.addAll(c.getItemList());
+            items.addAll(c.getItems());
         }
         return items;
     }

@@ -41,7 +41,7 @@ public class Category implements Parcelable {
         }
     };
 
-    public List<Item> getItemList() {
+    public List<Item> getItems() {
         return items;
     }
 
