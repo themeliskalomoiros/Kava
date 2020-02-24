@@ -104,9 +104,11 @@ public class CheckoutItemAdapter extends RecyclerView.Adapter<CheckoutItemAdapte
             category = itemView.findViewById(R.id.category);
             items = itemView.findViewById(R.id.items);
         }
-        public void bindCategory(String category){
+
+        public void bindCategory(String category) {
             this.category.setText(category);
         }
+
         public void bindItems(String items) {
             this.items.setText(items);
         }

@@ -19,7 +19,6 @@ import kalymnos.skemelio.kava.Model.persistance.QuantityRepo;
 import kalymnos.skemelio.kava.Model.persistance.QuantityRepoImpl;
 import kalymnos.skemelio.kava.Model.pojos.Category;
 import kalymnos.skemelio.kava.Model.pojos.Item;
-import kalymnos.skemelio.kava.Model.pojos.Quantity;
 import kalymnos.skemelio.kava.R;
 import kalymnos.skemelio.kava.View.screen_checkout.CheckoutScreenViewMvc;
 import kalymnos.skemelio.kava.View.screen_checkout.CheckoutScreenViewMvcImpl;
@@ -59,7 +58,7 @@ public class CheckoutActivity
         categories = new ArrayList<>();
         for (int i = 0; i < parcels.length; i++) {
             Category c = (Category) parcels[i];
-            if (!quantities.isEmpty(c)){
+            if (!quantities.isEmpty(c)) {
                 categories.add(c);
             }
         }
