@@ -72,10 +72,12 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.action_note:
                 if (repo.isEmpty(categories)) {
-                    Snackbar.make(viewMvc.getRootView(), getString(R.string.kava_not_ready), Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(
+                            viewMvc.getRootView(),
+                            getString(R.string.kava_not_ready),
+                            Snackbar.LENGTH_SHORT).show();
                 } else {
-                    Intent intent = packIntentWithCategories();
-                    startActivity(intent);
+                    startActivity(getCategoriesIntent());
                 }
                 return true;
             case R.id.action_clear:
@@ -85,7 +87,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private Intent packIntentWithCategories() {
+    private Intent getCategoriesIntent() {
         Intent intent = new Intent(this, CheckoutActivity.class);
         Parcelable[] parcelables = new Parcelable[categories.size()];
         for (int i = 0; i < categories.size(); i++) {
@@ -105,11 +107,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onCategoryClick(int position) {
         Category category = categories.get(position);
-        Intent intent = packIntentWith(category);
-        startActivity(intent);
+        startActivity(getIntentOf(category));
     }
 
-    private Intent packIntentWith(Category c) {
+    private Intent getIntentOf(Category c) {
         Bundle extras = new Bundle();
         extras.putParcelable(Category.class.getSimpleName(), c);
         Intent intent = new Intent(this, ItemsActivity.class);
@@ -131,9 +132,9 @@ public class MainActivity extends AppCompatActivity
             @Nullable
             @Override
             public List<Category> loadInBackground() {
-                String rawJson = getDataFromAssets("data.json");
+                String json = getDataFromAssets("data.json");
                 try {
-                    return Categories.from(new JSONObject(rawJson));
+                    return Categories.from(new JSONObject(json));
                 } catch (JSONException e) {
                     return null;
                 }

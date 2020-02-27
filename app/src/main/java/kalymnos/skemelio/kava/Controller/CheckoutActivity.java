@@ -93,7 +93,6 @@ public class CheckoutActivity
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_add_title) {
-            // TODO: add title functionality
             AddTitleDialog d = new AddTitleDialog();
             d.setAddTitleDialogListener(this);
             String tag = "" + d.hashCode();
@@ -111,7 +110,7 @@ public class CheckoutActivity
 
     private Intent getShareIntent() {
         String finalText = formatter.createTextToShare(
-                viewMvc.getTitle(), // TODO: Add title here
+                viewMvc.getTitle(),
                 Time.getCurrentTime(),
                 formatter.formatKava());
         Intent intent = new Intent(Intent.ACTION_SEND);

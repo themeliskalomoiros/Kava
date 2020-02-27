@@ -21,10 +21,10 @@ import kalymnos.skemelio.kava.View.screen_items.ItemsScreenViewMvcImpl;
 public class ItemsActivity extends AppCompatActivity
         implements ItemsScreenViewMvc.OnItemQuantityChangeListener {
 
-    private ItemsScreenViewMvc viewMvc;
     private Category category;
-    private Quantity[] quantities;
     private QuantityRepo repo;
+    private Quantity[] quantities;
+    private ItemsScreenViewMvc viewMvc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,19 +37,23 @@ public class ItemsActivity extends AppCompatActivity
     }
 
     private void initRepo() {
-        SharedPreferences categoryPrefs = getSharedPreferences(Category.class.getSimpleName(), MODE_PRIVATE);
-        SharedPreferences itemPrefs = getSharedPreferences(Item.class.getSimpleName(), MODE_PRIVATE);
+        SharedPreferences categoryPrefs = getSharedPreferences(
+                Category.class.getSimpleName(),
+                MODE_PRIVATE);
+        SharedPreferences itemPrefs = getSharedPreferences(
+                Item.class.getSimpleName(),
+                MODE_PRIVATE);
         repo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
     }
 
     private void initCategory() {
         Bundle data = getIntent().getExtras();
-        category = (Category) data.getParcelable(Category.class.getSimpleName());
+        category = data.getParcelable(Category.class.getSimpleName());
     }
 
-    private void initQuantities(Bundle savedInstanceState) {
-        if (savedInstanceState != null && savedInstanceState.containsKey(Quantity.class.getSimpleName())) {
-            quantities = (Quantity[]) savedInstanceState.getSerializable(Quantity.class.getSimpleName());
+    private void initQuantities(Bundle b) {
+        if (b != null && b.containsKey(Quantity.class.getSimpleName())) {
+            quantities = (Quantity[]) b.getSerializable(Quantity.class.getSimpleName());
         } else {
             quantities = repo.getQuantitiesOf(category.getItems());
         }
@@ -84,18 +88,18 @@ public class ItemsActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_delete) {
-            resetAllQuantitiesOf(category.id);
+            resetQuantities();
+            viewMvc.bindQuantities(quantities);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void resetAllQuantitiesOf(int categoryId) {
+    private void resetQuantities() {
         for (int i = 0; i < quantities.length; i++) {
             Quantity q = quantities[i];
             q.reset();
         }
-        viewMvc.bindQuantities(quantities);
     }
 
     @Override
