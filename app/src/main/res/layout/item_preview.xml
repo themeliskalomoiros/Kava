@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Jose Quervo Gold 700 ml" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/remove_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/add_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
