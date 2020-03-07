@@ -1,4 +1,4 @@
-package kalymnos.skemelio.kava.Dialogs;
+package kalymnos.skemelio.kava.dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

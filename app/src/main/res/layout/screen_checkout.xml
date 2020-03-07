@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryColor"
-    tools:context=".Controller.MainActivity"
+    tools:context=".controller.MainActivity"
     android:paddingTop="@dimen/main_content_top_padding">
 
     <LinearLayout
@@ -19,8 +19,17 @@
             android:layout_height="wrap_content"
             android:textColor="@color/primaryTextColor"
             android:textAlignment="center"
+            android:fontFamily="@font/aver_bold"
             android:textSize="@dimen/main_label"
             android:visibility="gone" />
+
+        <View
+            android:id="@+id/title_line"
+            android:layout_width="160dp"
+            android:layout_height="1dp"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/secondaryColor" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/items"
@@ -28,7 +37,6 @@
             android:layout_height="wrap_content"
             android:scrollbars="vertical"/>
     </LinearLayout>
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/share"

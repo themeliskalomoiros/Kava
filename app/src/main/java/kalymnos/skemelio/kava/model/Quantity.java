@@ -1,4 +1,4 @@
-package kalymnos.skemelio.kava.Model.pojos;
+package kalymnos.skemelio.kava.model;
 
 import java.io.Serializable;
 

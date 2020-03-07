@@ -1,4 +1,4 @@
-package kalymnos.skemelio.kava.View.screen_items;
+package kalymnos.skemelio.kava.view.screen_items;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +12,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-import kalymnos.skemelio.kava.Model.pojos.Item;
-import kalymnos.skemelio.kava.Model.pojos.Quantity;
+import kalymnos.skemelio.kava.model.Item;
+import kalymnos.skemelio.kava.model.Quantity;
 import kalymnos.skemelio.kava.R;
 
 public class ItemsScreenViewMvcImpl implements ItemsScreenViewMvc {

@@ -1,4 +1,4 @@
-package kalymnos.skemelio.kava.View.screen_main;
+package kalymnos.skemelio.kava.view.screen_main;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import kalymnos.skemelio.kava.Model.pojos.Category;
+import kalymnos.skemelio.kava.model.Category;
 import kalymnos.skemelio.kava.R;
 
 public class MainScreenViewMvcImpl implements MainScreenViewMvc {

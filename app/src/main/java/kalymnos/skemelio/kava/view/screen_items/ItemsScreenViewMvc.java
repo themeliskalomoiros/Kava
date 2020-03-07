@@ -1,10 +1,10 @@
-package kalymnos.skemelio.kava.View.screen_items;
+package kalymnos.skemelio.kava.view.screen_items;
 
 import java.util.List;
 
-import kalymnos.skemelio.kava.Model.pojos.Item;
-import kalymnos.skemelio.kava.Model.pojos.Quantity;
-import kalymnos.skemelio.kava.View.ViewMvc;
+import kalymnos.skemelio.kava.model.Item;
+import kalymnos.skemelio.kava.model.Quantity;
+import kalymnos.skemelio.kava.view.ViewMvc;
 
 public interface ItemsScreenViewMvc extends ViewMvc {
 

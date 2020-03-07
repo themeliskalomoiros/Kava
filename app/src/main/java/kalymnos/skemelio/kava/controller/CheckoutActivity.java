@@ -1,4 +1,4 @@
-package kalymnos.skemelio.kava.Controller;
+package kalymnos.skemelio.kava.controller;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,14 +14,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-import kalymnos.skemelio.kava.Dialogs.AddTitleDialog;
-import kalymnos.skemelio.kava.Model.persistance.QuantityRepo;
-import kalymnos.skemelio.kava.Model.persistance.QuantityRepoImpl;
-import kalymnos.skemelio.kava.Model.pojos.Category;
-import kalymnos.skemelio.kava.Model.pojos.Item;
+import kalymnos.skemelio.kava.dialogs.AddTitleDialog;
+import kalymnos.skemelio.kava.persistance.QuantityRepo;
+import kalymnos.skemelio.kava.persistance.QuantityRepoImpl;
+import kalymnos.skemelio.kava.model.Category;
+import kalymnos.skemelio.kava.model.Item;
 import kalymnos.skemelio.kava.R;
-import kalymnos.skemelio.kava.View.screen_checkout.CheckoutScreenViewMvc;
-import kalymnos.skemelio.kava.View.screen_checkout.CheckoutScreenViewMvcImpl;
+import kalymnos.skemelio.kava.view.screen_checkout.CheckoutScreenViewMvc;
+import kalymnos.skemelio.kava.view.screen_checkout.CheckoutScreenViewMvcImpl;
 import kalymnos.skemelio.kava.util.CheckoutFormatter;
 import kalymnos.skemelio.kava.util.Time;
 
@@ -125,8 +125,10 @@ public class CheckoutActivity
         viewMvc.bindTitle(title.trim());
         if (title == null || title.length() == 0) {
             viewMvc.hideTitle();
+            viewMvc.hideTitleLine();
         } else {
             viewMvc.showTitle();
+            viewMvc.showTitleLine();
         }
     }
 }

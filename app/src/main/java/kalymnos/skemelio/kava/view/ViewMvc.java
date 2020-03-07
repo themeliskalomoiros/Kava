@@ -1,4 +1,4 @@
-package kalymnos.skemelio.kava.View;
+package kalymnos.skemelio.kava.view;
 
 import android.view.View;
 

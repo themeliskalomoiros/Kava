@@ -1,9 +1,9 @@
-package kalymnos.skemelio.kava.View.screen_checkout;
+package kalymnos.skemelio.kava.view.screen_checkout;
 
 import java.util.List;
 
-import kalymnos.skemelio.kava.Model.pojos.Category;
-import kalymnos.skemelio.kava.View.ViewMvc;
+import kalymnos.skemelio.kava.model.Category;
+import kalymnos.skemelio.kava.view.ViewMvc;
 
 public interface CheckoutScreenViewMvc extends ViewMvc {
 
@@ -22,4 +22,8 @@ public interface CheckoutScreenViewMvc extends ViewMvc {
     void showTitle();
 
     void hideTitle();
+
+    void showTitleLine();
+
+    void hideTitleLine();
 }

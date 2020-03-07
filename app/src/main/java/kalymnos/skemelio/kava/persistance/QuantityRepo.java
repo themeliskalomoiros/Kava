@@ -1,10 +1,10 @@
-package kalymnos.skemelio.kava.Model.persistance;
+package kalymnos.skemelio.kava.persistance;
 
 import java.util.List;
 
-import kalymnos.skemelio.kava.Model.pojos.Category;
-import kalymnos.skemelio.kava.Model.pojos.Item;
-import kalymnos.skemelio.kava.Model.pojos.Quantity;
+import kalymnos.skemelio.kava.model.Category;
+import kalymnos.skemelio.kava.model.Item;
+import kalymnos.skemelio.kava.model.Quantity;
 
 public interface QuantityRepo {
     boolean isCategorySet(int categoryId);
