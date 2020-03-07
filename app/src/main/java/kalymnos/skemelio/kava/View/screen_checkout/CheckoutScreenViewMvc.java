@@ -22,4 +22,8 @@ public interface CheckoutScreenViewMvc extends ViewMvc {
     void showTitle();
 
     void hideTitle();
+
+    void showTitleLine();
+
+    void hideTitleLine();
 }

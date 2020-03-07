@@ -16,7 +16,7 @@ import kalymnos.skemelio.kava.Model.pojos.Category;
 import kalymnos.skemelio.kava.R;
 
 public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
-    private View root;
+    private View root, titleLine;
     private FloatingActionButton share;
     private TextView title;
     private RecyclerView items;
@@ -26,6 +26,7 @@ public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
         root = inflater.inflate(R.layout.screen_checkout, parent, false);
         share = root.findViewById(R.id.share);
         title = root.findViewById(R.id.title);
+        titleLine = root.findViewById(R.id.title_line);
         setupRecyclerView();
     }
 
@@ -69,6 +70,16 @@ public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
     @Override
     public void hideTitle() {
         title.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showTitleLine() {
+        titleLine.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideTitleLine() {
+        titleLine.setVisibility(View.GONE);
     }
 
     @Override

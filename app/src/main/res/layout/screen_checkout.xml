@@ -19,8 +19,17 @@
             android:layout_height="wrap_content"
             android:textColor="@color/primaryTextColor"
             android:textAlignment="center"
+            android:fontFamily="@font/aver_bold"
             android:textSize="@dimen/main_label"
             android:visibility="gone" />
+
+        <View
+            android:id="@+id/title_line"
+            android:layout_width="160dp"
+            android:layout_height="1dp"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/secondaryColor" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/items"

@@ -28,16 +28,18 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/drinks"
+        android:fontFamily="@font/aver_bold"
         android:textColor="@color/primaryTextColor"
         android:textAlignment="center"
         android:paddingTop="@dimen/default_margin"
         android:textSize="@dimen/main_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center_horizontal" />
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/title_line"
         android:layout_width="160dp"
         android:layout_height="1dp"
         android:background="@color/secondaryColor"
@@ -55,6 +57,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/title_line" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

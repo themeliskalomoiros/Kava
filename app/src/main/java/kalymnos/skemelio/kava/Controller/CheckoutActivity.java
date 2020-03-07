@@ -125,8 +125,10 @@ public class CheckoutActivity
         viewMvc.bindTitle(title.trim());
         if (title == null || title.length() == 0) {
             viewMvc.hideTitle();
+            viewMvc.hideTitleLine();
         } else {
             viewMvc.showTitle();
+            viewMvc.showTitleLine();
         }
     }
 }
