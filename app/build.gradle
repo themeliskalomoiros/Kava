@@ -7,8 +7,8 @@ android {
         applicationId "kalymnos.skemelio.kava"
         minSdkVersion 15
         targetSdkVersion 29
-        versionCode 8
-        versionName "1.4"
+        versionCode 10
+        versionName "1.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

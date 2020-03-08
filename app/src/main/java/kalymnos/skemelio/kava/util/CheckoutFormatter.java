@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import kalymnos.skemelio.kava.persistance.QuantityRepo;
 import kalymnos.skemelio.kava.model.Categories;
 import kalymnos.skemelio.kava.model.Category;
 import kalymnos.skemelio.kava.model.Item;
 import kalymnos.skemelio.kava.model.Quantity;
+import kalymnos.skemelio.kava.persistance.QuantityRepo;
 
 public class CheckoutFormatter {
     private final String atomLabel;

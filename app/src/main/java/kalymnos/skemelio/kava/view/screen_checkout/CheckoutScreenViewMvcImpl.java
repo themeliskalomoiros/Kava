@@ -12,8 +12,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-import kalymnos.skemelio.kava.model.Category;
 import kalymnos.skemelio.kava.R;
+import kalymnos.skemelio.kava.model.Category;
 
 public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
     private View root, titleLine;

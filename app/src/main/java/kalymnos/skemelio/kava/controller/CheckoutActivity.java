@@ -14,30 +14,35 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import kalymnos.skemelio.kava.R;
 import kalymnos.skemelio.kava.dialogs.AddTitleDialog;
-import kalymnos.skemelio.kava.persistance.QuantityRepo;
-import kalymnos.skemelio.kava.persistance.QuantityRepoImpl;
 import kalymnos.skemelio.kava.model.Category;
 import kalymnos.skemelio.kava.model.Item;
-import kalymnos.skemelio.kava.R;
-import kalymnos.skemelio.kava.view.screen_checkout.CheckoutScreenViewMvc;
-import kalymnos.skemelio.kava.view.screen_checkout.CheckoutScreenViewMvcImpl;
+import kalymnos.skemelio.kava.persistance.QuantityRepo;
+import kalymnos.skemelio.kava.persistance.QuantityRepoImpl;
 import kalymnos.skemelio.kava.util.CheckoutFormatter;
 import kalymnos.skemelio.kava.util.Time;
+import kalymnos.skemelio.kava.view.screen_checkout.CheckoutScreenViewMvc;
+import kalymnos.skemelio.kava.view.screen_checkout.CheckoutScreenViewMvcImpl;
 
 public class CheckoutActivity
         extends AppCompatActivity
         implements CheckoutScreenViewMvc.OnShareClickListener,
         AddTitleDialog.AddTitleDialogListener {
 
+    private static final String TITLE_KEY = "checkout_user_title_key";
+    private static final String TITLE_FILE = "checkout_title";
+
     private CheckoutScreenViewMvc viewMvc;
     private List<Category> categories;
     private CheckoutFormatter formatter;
     private QuantityRepo quantities;
+    private SharedPreferences titlePrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        titlePrefs = getSharedPreferences(TITLE_FILE, MODE_PRIVATE);
         initQuantities();
         initCategories();
         initFormatter();
@@ -58,9 +63,8 @@ public class CheckoutActivity
         categories = new ArrayList<>();
         for (int i = 0; i < parcels.length; i++) {
             Category c = (Category) parcels[i];
-            if (!quantities.isEmpty(c)) {
+            if (!quantities.isEmpty(c))
                 categories.add(c);
-            }
         }
     }
 
@@ -76,6 +80,27 @@ public class CheckoutActivity
         initViewMvc();
         getSupportActionBar().setTitle(R.string.checkout_send);
         setContentView(viewMvc.getRootView());
+        setupTitle();
+    }
+
+    private void setupTitle() {
+        if (titlePrefs.contains(TITLE_KEY)){
+            String title = titlePrefs.getString(TITLE_KEY, "");
+            viewMvc.bindTitle(title);
+            showTitleViews();
+        }else{
+            hideTitleViews();
+        }
+    }
+
+    private void showTitleViews() {
+        viewMvc.showTitle();
+        viewMvc.showTitleLine();
+    }
+
+    private void hideTitleViews() {
+        viewMvc.hideTitle();
+        viewMvc.hideTitleLine();
     }
 
     private void initViewMvc() {
@@ -93,13 +118,17 @@ public class CheckoutActivity
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_add_title) {
-            AddTitleDialog d = new AddTitleDialog();
-            d.setAddTitleDialogListener(this);
-            String tag = "" + d.hashCode();
-            d.show(getSupportFragmentManager(), tag);
+            showTitleDialog();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showTitleDialog() {
+        AddTitleDialog d = new AddTitleDialog();
+        d.setAddTitleDialogListener(this);
+        String tag = "" + d.hashCode();
+        d.show(getSupportFragmentManager(), tag);
     }
 
     @Override
@@ -124,11 +153,22 @@ public class CheckoutActivity
     public void onDialogPositiveClick(String title) {
         viewMvc.bindTitle(title.trim());
         if (title == null || title.length() == 0) {
-            viewMvc.hideTitle();
-            viewMvc.hideTitleLine();
+            hideTitleViews();
+            clearPreferences();
         } else {
-            viewMvc.showTitle();
-            viewMvc.showTitleLine();
+            showTitleViews();
+            saveTitleToPreferences(title);
         }
+    }
+
+    private void clearPreferences() {
+        SharedPreferences.Editor editor = titlePrefs.edit();
+        editor.clear().commit();
+    }
+
+    private void saveTitleToPreferences(String title) {
+        SharedPreferences.Editor editor = titlePrefs.edit();
+        editor.putString(TITLE_KEY, title);
+        editor.apply();
     }
 }
