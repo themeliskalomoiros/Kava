@@ -9,6 +9,7 @@ import kalymnos.skemelio.kava.model.Category;
 import kalymnos.skemelio.kava.model.Item;
 import kalymnos.skemelio.kava.model.Quantity;
 
+// TODO: needs refactoring
 public class QuantityRepoImpl implements QuantityRepo {
     private static QuantityRepoImpl INSTANCE = null;
     private SharedPreferences categoryPrefs;

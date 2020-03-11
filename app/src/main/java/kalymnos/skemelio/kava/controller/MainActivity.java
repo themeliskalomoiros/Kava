@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,9 +20,9 @@ import com.google.android.material.snackbar.Snackbar;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import kalymnos.skemelio.kava.R;
@@ -32,6 +31,7 @@ import kalymnos.skemelio.kava.model.Category;
 import kalymnos.skemelio.kava.model.Item;
 import kalymnos.skemelio.kava.persistance.QuantityRepo;
 import kalymnos.skemelio.kava.persistance.QuantityRepoImpl;
+import kalymnos.skemelio.kava.util.JsonDataRetriever;
 import kalymnos.skemelio.kava.view.screen_main.MainScreenViewMvc;
 import kalymnos.skemelio.kava.view.screen_main.MainScreenViewMvcImpl;
 
@@ -41,24 +41,30 @@ public class MainActivity extends AppCompatActivity
 
     private static final int LOADER_ID = 1212;
 
+    private QuantityRepo repo;
     private MainScreenViewMvc viewMvc;
     private List<Category> categories;
-    private QuantityRepo repo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initRepo();
-        viewMvc = new MainScreenViewMvcImpl(LayoutInflater.from(this), null);
-        viewMvc.setOnCategoryClickListener(this);
-        setContentView(viewMvc.getRootView());
+        setupLayout();
         getSupportLoaderManager().restartLoader(LOADER_ID, null, this);
     }
 
     private void initRepo() {
-        SharedPreferences categoryPrefs = getSharedPreferences(Category.class.getSimpleName(), MODE_PRIVATE);
-        SharedPreferences itemPrefs = getSharedPreferences(Item.class.getSimpleName(), MODE_PRIVATE);
+        SharedPreferences categoryPrefs =
+                getSharedPreferences(Category.class.getSimpleName(), MODE_PRIVATE);
+        SharedPreferences itemPrefs =
+                getSharedPreferences(Item.class.getSimpleName(), MODE_PRIVATE);
         repo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
+    }
+
+    private void setupLayout() {
+        viewMvc = new MainScreenViewMvcImpl(LayoutInflater.from(this), null);
+        viewMvc.setOnCategoryClickListener(this);
+        setContentView(viewMvc.getRootView());
     }
 
     @Override
@@ -70,20 +76,25 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_note:
-                if (repo.isEmpty(categories)) {
-                    Snackbar.make(
-                            viewMvc.getRootView(),
-                            getString(R.string.kava_not_ready),
-                            Snackbar.LENGTH_SHORT).show();
-                } else {
-                    startActivity(getCategoriesIntent());
-                }
+            case R.id.action_checkout:
+                handleCheckout();
                 return true;
             case R.id.action_clear:
-                return resetAllQuantities();
+                resetAllQuantities();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void handleCheckout() {
+        if (repo.isEmpty(categories)) {
+            Snackbar.make(
+                    viewMvc.getRootView(),
+                    getString(R.string.kava_not_ready),
+                    Snackbar.LENGTH_SHORT).show();
+        } else {
+            startActivity(getCategoriesIntent());
         }
     }
 
@@ -98,10 +109,9 @@ public class MainActivity extends AppCompatActivity
         return intent;
     }
 
-    private boolean resetAllQuantities() {
+    private void resetAllQuantities() {
         repo.clear();
         viewMvc.bind(categories);
-        return true;
     }
 
     @Override
@@ -132,35 +142,15 @@ public class MainActivity extends AppCompatActivity
             @Nullable
             @Override
             public List<Category> loadInBackground() {
-                String json = getDataFromAssets("data.json");
-                try {
-                    return Categories.from(new JSONObject(json));
-                } catch (JSONException e) {
-                    return null;
-                }
+                return getCategoriesOf("data.json");
             }
 
-            private String getDataFromAssets(String fileName) {
-                BufferedReader in = null;
-                try {
-                    in = new BufferedReader(new InputStreamReader(getContext().getAssets().open(fileName)));
-                    StringBuilder sb = new StringBuilder();
-                    String line;
-                    while ((line = in.readLine()) != null) {
-                        sb.append(line);
-                    }
-                    return sb.toString();
-                } catch (IOException e) {
-                    Log.d(MainActivity.class.getName(), e.getMessage());
-                    return null;
-                } finally {
-                    if (in != null) {
-                        try {
-                            in.close();
-                        } catch (IOException e) {
-                            Log.d(MainActivity.class.getName(), e.getMessage());
-                        }
-                    }
+            private List<Category> getCategoriesOf(String file) {
+                try (InputStream in = getContext().getAssets().open(file)) {
+                    String json = JsonDataRetriever.rawJson(in);
+                    return Categories.from(new JSONObject(json));
+                } catch (JSONException | IOException e) {
+                    return new ArrayList<>(0);
                 }
             }
         };
@@ -175,6 +165,5 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onLoaderReset(@NonNull Loader<List<Category>> loader) {
-
     }
 }

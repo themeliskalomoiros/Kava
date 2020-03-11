@@ -84,11 +84,11 @@ public class CheckoutActivity
     }
 
     private void setupTitle() {
-        if (titlePrefs.contains(TITLE_KEY)){
+        if (titlePrefs.contains(TITLE_KEY)) {
             String title = titlePrefs.getString(TITLE_KEY, "");
             viewMvc.bindTitle(title);
             showTitleViews();
-        }else{
+        } else {
             hideTitleViews();
         }
     }
