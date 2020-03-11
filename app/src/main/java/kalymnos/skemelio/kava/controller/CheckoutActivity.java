@@ -20,6 +20,8 @@ import kalymnos.skemelio.kava.model.Category;
 import kalymnos.skemelio.kava.model.Item;
 import kalymnos.skemelio.kava.persistance.QuantityRepo;
 import kalymnos.skemelio.kava.persistance.QuantityRepoImpl;
+import kalymnos.skemelio.kava.persistance.TitleRepo;
+import kalymnos.skemelio.kava.persistance.TitleRepoImpl;
 import kalymnos.skemelio.kava.util.CheckoutFormatter;
 import kalymnos.skemelio.kava.util.Time;
 import kalymnos.skemelio.kava.view.screen_checkout.CheckoutScreenViewMvc;
@@ -30,19 +32,16 @@ public class CheckoutActivity
         implements CheckoutScreenViewMvc.OnShareClickListener,
         AddTitleDialog.AddTitleDialogListener {
 
-    private static final String TITLE_KEY = "checkout_user_title_key";
-    private static final String TITLE_FILE = "checkout_title";
-
     private CheckoutScreenViewMvc viewMvc;
     private List<Category> categories;
     private CheckoutFormatter formatter;
-    private QuantityRepo quantities;
-    private SharedPreferences titlePrefs;
+    private QuantityRepo quantityRepo;
+    private TitleRepo titleRepo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        titlePrefs = getSharedPreferences(TITLE_FILE, MODE_PRIVATE);
+        titleRepo = new TitleRepoImpl(this);
         initQuantities();
         initCategories();
         initFormatter();
@@ -54,7 +53,7 @@ public class CheckoutActivity
                 getSharedPreferences(Category.class.getSimpleName(), MODE_PRIVATE);
         SharedPreferences itemPrefs =
                 getSharedPreferences(Item.class.getSimpleName(), MODE_PRIVATE);
-        quantities = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
+        quantityRepo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
     }
 
     private void initCategories() {
@@ -63,14 +62,14 @@ public class CheckoutActivity
         categories = new ArrayList<>();
         for (int i = 0; i < parcels.length; i++) {
             Category c = (Category) parcels[i];
-            if (!quantities.isEmpty(c))
+            if (!quantityRepo.isEmpty(c))
                 categories.add(c);
         }
     }
 
     private void initFormatter() {
         formatter = new CheckoutFormatter(
-                quantities,
+                quantityRepo,
                 categories.toArray(new Category[categories.size()]),
                 getString(R.string.atoms),
                 getString(R.string.containers));
@@ -90,8 +89,8 @@ public class CheckoutActivity
     }
 
     private void addTitle() {
-        if (titlePrefs.contains(TITLE_KEY)) {
-            String title = titlePrefs.getString(TITLE_KEY, "");
+        String title = titleRepo.loadTitle();
+        if (title != null) {
             viewMvc.bindTitle(title);
             viewMvc.showTitle();
         } else {
@@ -141,25 +140,15 @@ public class CheckoutActivity
 
     @Override
     public void onDialogPositiveClick(String title) {
-        viewMvc.bindTitle(title.trim());
+        title = title.trim();
         boolean titleNotExist = title == null || title.length() == 0;
         if (titleNotExist) {
             viewMvc.hideTitle();
-            clearPreferences();
+            titleRepo.clear();
         } else {
+            viewMvc.bindTitle(title);
             viewMvc.showTitle();
-            saveTitleToPreferences(title);
+            titleRepo.save(title);
         }
-    }
-
-    private void clearPreferences() {
-        SharedPreferences.Editor editor = titlePrefs.edit();
-        editor.clear().commit();
-    }
-
-    private void saveTitleToPreferences(String title) {
-        SharedPreferences.Editor editor = titlePrefs.edit();
-        editor.putString(TITLE_KEY, title);
-        editor.apply();
     }
 }
