@@ -33,7 +33,7 @@ public class ItemsActivity extends AppCompatActivity
         initCategory();
         initQuantities(savedInstanceState);
         initViewMvc();
-        bindUi();
+        setupLayout();
     }
 
     private void initRepo() {
@@ -47,12 +47,13 @@ public class ItemsActivity extends AppCompatActivity
     }
 
     private void initCategory() {
-        Bundle data = getIntent().getExtras();
-        category = data.getParcelable(Category.class.getSimpleName());
+        Bundle b = getIntent().getExtras();
+        category = b.getParcelable(Category.class.getSimpleName());
     }
 
     private void initQuantities(Bundle b) {
-        if (b != null && b.containsKey(Quantity.class.getSimpleName())) {
+        boolean quantitiesExist = b != null && b.containsKey(Quantity.class.getSimpleName());
+        if (quantitiesExist) {
             quantities = (Quantity[]) b.getSerializable(Quantity.class.getSimpleName());
         } else {
             quantities = repo.getQuantitiesOf(category.getItems());
@@ -64,9 +65,10 @@ public class ItemsActivity extends AppCompatActivity
         viewMvc.setOnItemQuantityChangeListener(this);
     }
 
-    private void bindUi() {
+    private void setupLayout() {
         setContentView(viewMvc.getRootView());
-        getSupportActionBar().setTitle(getString(R.string.note) + String.format(" \"%s\"", category.title));
+        String title = getString(R.string.note) + String.format(" \"%s\"", category.title);
+        getSupportActionBar().setTitle(title);
         viewMvc.bindItems(category.getItems());
         viewMvc.bindQuantities(quantities);
     }
@@ -74,9 +76,9 @@ public class ItemsActivity extends AppCompatActivity
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (quantities != null && quantities.length > 0) {
+        boolean quantitiesExist = quantities != null && quantities.length > 0;
+        if (quantitiesExist)
             outState.putSerializable(Quantity.class.getSimpleName(), quantities);
-        }
     }
 
     @Override
@@ -104,29 +106,25 @@ public class ItemsActivity extends AppCompatActivity
 
     @Override
     public void onAtomAdded(int position) {
-        Quantity q = quantities[position];
-        q.addAtom();
+        quantities[position].addAtom();
         viewMvc.bindQuantities(quantities);
     }
 
     @Override
     public void onContainerAdded(int position) {
-        Quantity q = quantities[position];
-        q.addContainer();
+        quantities[position].addContainer();
         viewMvc.bindQuantities(quantities);
     }
 
     @Override
     public void onAtomRemoved(int position) {
-        Quantity q = quantities[position];
-        q.removeAtom();
+        quantities[position].removeAtom();
         viewMvc.bindQuantities(quantities);
     }
 
     @Override
     public void onContainerRemoved(int position) {
-        Quantity q = quantities[position];
-        q.removeContainer();
+        quantities[position].removeContainer();
         viewMvc.bindQuantities(quantities);
     }
 
@@ -139,16 +137,15 @@ public class ItemsActivity extends AppCompatActivity
 
     private String[] getKeys() {
         String[] keys = new String[category.getItems().size()];
-        for (int i = 0; i < keys.length; i++) {
+        for (int i = 0; i < keys.length; i++)
             keys[i] = category.getItems().get(i).toString();
-        }
+
         return keys;
     }
 
     private void setCategoryItemCheckVisibility() {
         if (allQuantitiesAreEmpty()) {
             repo.markCategoryAsNonSet(category.id);
-
         } else {
             repo.markCategoryAsSet(category.id);
         }
@@ -156,8 +153,7 @@ public class ItemsActivity extends AppCompatActivity
 
     private boolean allQuantitiesAreEmpty() {
         for (int i = 0; i < quantities.length; i++) {
-            Quantity q = quantities[i];
-            if (q.isEmpty()) {
+            if (quantities[i].isEmpty()) {
                 continue;
             } else {
                 return false;
