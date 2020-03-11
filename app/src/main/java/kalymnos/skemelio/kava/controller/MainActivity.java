@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initRepo();
-        setupLayout();
+        setupUI();
         getSupportLoaderManager().restartLoader(LOADER_ID, null, this);
     }
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity
         repo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
     }
 
-    private void setupLayout() {
+    private void setupUI() {
         viewMvc = new MainScreenViewMvcImpl(LayoutInflater.from(this), null);
         viewMvc.setOnCategoryClickListener(this);
         setContentView(viewMvc.getRootView());

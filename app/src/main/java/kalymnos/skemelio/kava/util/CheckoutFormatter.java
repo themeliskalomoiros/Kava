@@ -68,7 +68,7 @@ public class CheckoutFormatter {
         return null;
     }
 
-    public String createTextToShare(String title, String date, String kava) {
+    public String createShareableText(String title, String date, String kava) {
         StringBuilder builder = new StringBuilder();
         builder.append(title + "\n");
         builder.append("(" + date + ")" + "\n\n");

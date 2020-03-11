@@ -65,20 +65,12 @@ public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
     @Override
     public void showTitle() {
         title.setVisibility(View.VISIBLE);
+        titleLine.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideTitle() {
         title.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void showTitleLine() {
-        titleLine.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void hideTitleLine() {
         titleLine.setVisibility(View.GONE);
     }
 

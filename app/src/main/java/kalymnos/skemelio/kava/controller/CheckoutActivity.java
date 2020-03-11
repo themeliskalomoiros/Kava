@@ -46,7 +46,7 @@ public class CheckoutActivity
         initQuantities();
         initCategories();
         initFormatter();
-        setupLayout();
+        setupUI();
     }
 
     private void initQuantities() {
@@ -76,37 +76,27 @@ public class CheckoutActivity
                 getString(R.string.containers));
     }
 
-    private void setupLayout() {
+    private void setupUI() {
         initViewMvc();
         getSupportActionBar().setTitle(R.string.checkout_send);
+        addTitle();
         setContentView(viewMvc.getRootView());
-        setupTitle();
-    }
-
-    private void setupTitle() {
-        if (titlePrefs.contains(TITLE_KEY)) {
-            String title = titlePrefs.getString(TITLE_KEY, "");
-            viewMvc.bindTitle(title);
-            showTitleViews();
-        } else {
-            hideTitleViews();
-        }
-    }
-
-    private void showTitleViews() {
-        viewMvc.showTitle();
-        viewMvc.showTitleLine();
-    }
-
-    private void hideTitleViews() {
-        viewMvc.hideTitle();
-        viewMvc.hideTitleLine();
     }
 
     private void initViewMvc() {
         viewMvc = new CheckoutScreenViewMvcImpl(LayoutInflater.from(this), null);
         viewMvc.setOnShareClickListener(this);
         viewMvc.bind(categories);
+    }
+
+    private void addTitle() {
+        if (titlePrefs.contains(TITLE_KEY)) {
+            String title = titlePrefs.getString(TITLE_KEY, "");
+            viewMvc.bindTitle(title);
+            viewMvc.showTitle();
+        } else {
+            viewMvc.hideTitle();
+        }
     }
 
     @Override
@@ -138,7 +128,7 @@ public class CheckoutActivity
     }
 
     private Intent getShareIntent() {
-        String finalText = formatter.createTextToShare(
+        String finalText = formatter.createShareableText(
                 viewMvc.getTitle(),
                 Time.getCurrentTime(),
                 formatter.formatKava());
@@ -152,11 +142,12 @@ public class CheckoutActivity
     @Override
     public void onDialogPositiveClick(String title) {
         viewMvc.bindTitle(title.trim());
-        if (title == null || title.length() == 0) {
-            hideTitleViews();
+        boolean titleNotExist = title == null || title.length() == 0;
+        if (titleNotExist) {
+            viewMvc.hideTitle();
             clearPreferences();
         } else {
-            showTitleViews();
+            viewMvc.showTitle();
             saveTitleToPreferences(title);
         }
     }

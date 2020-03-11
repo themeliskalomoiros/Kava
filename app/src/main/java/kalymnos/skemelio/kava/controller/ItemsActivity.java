@@ -33,7 +33,7 @@ public class ItemsActivity extends AppCompatActivity
         initCategory();
         initQuantities(savedInstanceState);
         initViewMvc();
-        setupLayout();
+        setupUI();
     }
 
     private void initRepo() {
@@ -65,7 +65,7 @@ public class ItemsActivity extends AppCompatActivity
         viewMvc.setOnItemQuantityChangeListener(this);
     }
 
-    private void setupLayout() {
+    private void setupUI() {
         setContentView(viewMvc.getRootView());
         String title = getString(R.string.note) + String.format(" \"%s\"", category.title);
         getSupportActionBar().setTitle(title);
