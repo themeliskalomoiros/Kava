@@ -40,20 +40,20 @@ public class CheckoutScreenViewMvcImpl implements CheckoutScreenViewMvc {
     }
 
     @Override
-    public void setOnShareClickListener(OnShareClickListener listener) {
+    public void setOnShareListener(OnShareListener listener) {
         if (listener != null)
-            share.setOnClickListener(v -> listener.onShareClick());
+            share.setOnClickListener(v -> listener.onShare());
     }
 
     @Override
-    public void bind(List<Category> categories) {
+    public void add(List<Category> categories) {
         items.setItemViewCacheSize(categories.size());
         adapter.add(categories);
         adapter.notifyDataSetChanged();
     }
 
     @Override
-    public void bindTitle(String text) {
+    public void setTitle(String text) {
         title.setText(text);
     }
 

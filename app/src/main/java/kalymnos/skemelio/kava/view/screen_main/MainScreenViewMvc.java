@@ -10,7 +10,7 @@ public interface MainScreenViewMvc extends ViewMvc {
         void onCategoryClick(int position);
     }
 
-    void bind(List<Category> categories);
+    void add(List<Category> categories);
 
     void setOnCategoryClickListener(OnCategoryClickListener listener);
 

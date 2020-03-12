@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity
 
     private void resetAllQuantities() {
         repo.clear();
-        viewMvc.bind(categories);
+        viewMvc.add(categories);
     }
 
     @Override
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity
     public void onLoadFinished(@NonNull Loader<List<Category>> loader, List<Category> data) {
         categories = data;
         viewMvc.hideProgressBar();
-        viewMvc.bind(data);
+        viewMvc.add(data);
     }
 
     @Override

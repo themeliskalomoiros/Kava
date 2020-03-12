@@ -69,8 +69,8 @@ public class ItemsActivity extends AppCompatActivity
         setContentView(viewMvc.getRootView());
         String title = getString(R.string.note) + String.format(" \"%s\"", category.title);
         getSupportActionBar().setTitle(title);
-        viewMvc.bindItems(category.getItems());
-        viewMvc.bindQuantities(quantities);
+        viewMvc.add(category.getItems());
+        viewMvc.add(quantities);
     }
 
     @Override
@@ -91,7 +91,7 @@ public class ItemsActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_delete) {
             resetQuantities();
-            viewMvc.bindQuantities(quantities);
+            viewMvc.add(quantities);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -107,25 +107,25 @@ public class ItemsActivity extends AppCompatActivity
     @Override
     public void onAtomAdded(int position) {
         quantities[position].addAtom();
-        viewMvc.bindQuantities(quantities);
+        viewMvc.add(quantities);
     }
 
     @Override
     public void onContainerAdded(int position) {
         quantities[position].addContainer();
-        viewMvc.bindQuantities(quantities);
+        viewMvc.add(quantities);
     }
 
     @Override
     public void onAtomRemoved(int position) {
         quantities[position].removeAtom();
-        viewMvc.bindQuantities(quantities);
+        viewMvc.add(quantities);
     }
 
     @Override
     public void onContainerRemoved(int position) {
         quantities[position].removeContainer();
-        viewMvc.bindQuantities(quantities);
+        viewMvc.add(quantities);
     }
 
     @Override

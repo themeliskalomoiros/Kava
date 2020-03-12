@@ -29,7 +29,7 @@ import kalymnos.skemelio.kava.view.screen_checkout.CheckoutScreenViewMvcImpl;
 
 public class CheckoutActivity
         extends AppCompatActivity
-        implements CheckoutScreenViewMvc.OnShareClickListener,
+        implements CheckoutScreenViewMvc.OnShareListener,
         AddTitleDialog.AddTitleDialogListener {
 
     private CheckoutScreenViewMvc viewMvc;
@@ -84,14 +84,14 @@ public class CheckoutActivity
 
     private void initViewMvc() {
         viewMvc = new CheckoutScreenViewMvcImpl(LayoutInflater.from(this), null);
-        viewMvc.setOnShareClickListener(this);
-        viewMvc.bind(categories);
+        viewMvc.setOnShareListener(this);
+        viewMvc.add(categories);
     }
 
     private void addTitle() {
         String title = titleRepo.loadTitle();
         if (title != null) {
-            viewMvc.bindTitle(title);
+            viewMvc.setTitle(title);
             viewMvc.showTitle();
         } else {
             viewMvc.hideTitle();
@@ -121,7 +121,7 @@ public class CheckoutActivity
     }
 
     @Override
-    public void onShareClick() {
+    public void onShare() {
         Intent share = getShareIntent();
         startActivity(Intent.createChooser(share, getString(R.string.share_the_noted_items)));
     }
@@ -146,7 +146,7 @@ public class CheckoutActivity
             viewMvc.hideTitle();
             titleRepo.clear();
         } else {
-            viewMvc.bindTitle(title);
+            viewMvc.setTitle(title);
             viewMvc.showTitle();
             titleRepo.save(title);
         }

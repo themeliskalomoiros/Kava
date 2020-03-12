@@ -36,7 +36,7 @@ public class MainScreenViewMvcImpl implements MainScreenViewMvc {
     }
 
     @Override
-    public void bind(List<Category> categories) {
+    public void add(List<Category> categories) {
         adapter.add(categories);
         adapter.notifyDataSetChanged();
     }

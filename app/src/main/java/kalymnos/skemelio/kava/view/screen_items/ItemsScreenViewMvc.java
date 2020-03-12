@@ -20,7 +20,7 @@ public interface ItemsScreenViewMvc extends ViewMvc {
 
     void setOnItemQuantityChangeListener(OnItemQuantityChangeListener listener);
 
-    void bindItems(List<Item> items);
+    void add(List<Item> items);
 
-    void bindQuantities(Quantity[] quantities);
+    void add(Quantity[] quantities);
 }

@@ -44,13 +44,13 @@ public class ItemsScreenViewMvcImpl implements ItemsScreenViewMvc {
     }
 
     @Override
-    public void bindItems(List<Item> items) {
-        adapter.addItems(items);
+    public void add(List<Item> items) {
+        adapter.add(items);
         adapter.notifyDataSetChanged();
     }
 
     @Override
-    public void bindQuantities(Quantity[] quantities) {
+    public void add(Quantity[] quantities) {
         adapter.addQuantities(quantities);
         adapter.notifyDataSetChanged();
     }

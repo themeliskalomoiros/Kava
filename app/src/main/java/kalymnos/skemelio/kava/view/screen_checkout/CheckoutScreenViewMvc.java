@@ -7,15 +7,15 @@ import kalymnos.skemelio.kava.view.ViewMvc;
 
 public interface CheckoutScreenViewMvc extends ViewMvc {
 
-    interface OnShareClickListener {
-        void onShareClick();
+    interface OnShareListener {
+        void onShare();
     }
 
-    void setOnShareClickListener(OnShareClickListener listener);
+    void setOnShareListener(OnShareListener listener);
 
-    void bind(List<Category> categories);
+    void add(List<Category> categories);
 
-    void bindTitle(String title);
+    void setTitle(String title);
 
     String getTitle();
 

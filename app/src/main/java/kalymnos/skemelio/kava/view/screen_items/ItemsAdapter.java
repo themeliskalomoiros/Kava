@@ -27,7 +27,7 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder> {
         this.context = context;
     }
 
-    public void addItems(List<Item> items) {
+    public void add(List<Item> items) {
         this.items = items;
     }
 
