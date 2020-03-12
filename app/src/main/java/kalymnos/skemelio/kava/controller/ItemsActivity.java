@@ -1,6 +1,5 @@
 package kalymnos.skemelio.kava.controller;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -11,10 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import kalymnos.skemelio.kava.R;
 import kalymnos.skemelio.kava.model.Category;
-import kalymnos.skemelio.kava.model.Item;
 import kalymnos.skemelio.kava.model.Quantity;
-import kalymnos.skemelio.kava.persistance.QuantityRepo;
-import kalymnos.skemelio.kava.persistance.QuantityRepoImpl;
+import kalymnos.skemelio.kava.persistance.KavaRepo;
+import kalymnos.skemelio.kava.persistance.KavaRepoImpl;
 import kalymnos.skemelio.kava.view.screen_items.ItemsScreenViewMvc;
 import kalymnos.skemelio.kava.view.screen_items.ItemsScreenViewMvcImpl;
 
@@ -22,14 +20,14 @@ public class ItemsActivity extends AppCompatActivity
         implements ItemsScreenViewMvc.OnItemQuantityChangeListener {
 
     private Category category;
-    private QuantityRepo repo;
+    private KavaRepo repo;
     private Quantity[] quantities;
     private ItemsScreenViewMvc viewMvc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        repo = QuantityRepoImpl.createFrom(this);
+        repo = KavaRepoImpl.createFrom(this);
         initCategory();
         initQuantities(savedInstanceState);
         initViewMvc();

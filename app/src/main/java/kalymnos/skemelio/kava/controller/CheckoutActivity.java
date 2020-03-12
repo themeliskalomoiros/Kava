@@ -1,7 +1,6 @@
 package kalymnos.skemelio.kava.controller;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
@@ -17,9 +16,8 @@ import java.util.List;
 import kalymnos.skemelio.kava.R;
 import kalymnos.skemelio.kava.dialogs.AddTitleDialog;
 import kalymnos.skemelio.kava.model.Category;
-import kalymnos.skemelio.kava.model.Item;
-import kalymnos.skemelio.kava.persistance.QuantityRepo;
-import kalymnos.skemelio.kava.persistance.QuantityRepoImpl;
+import kalymnos.skemelio.kava.persistance.KavaRepo;
+import kalymnos.skemelio.kava.persistance.KavaRepoImpl;
 import kalymnos.skemelio.kava.persistance.TitleRepo;
 import kalymnos.skemelio.kava.persistance.TitleRepoImpl;
 import kalymnos.skemelio.kava.util.CheckoutFormatter;
@@ -35,14 +33,14 @@ public class CheckoutActivity
     private CheckoutScreenViewMvc viewMvc;
     private List<Category> categories;
     private CheckoutFormatter formatter;
-    private QuantityRepo quantityRepo;
+    private KavaRepo kavaRepo;
     private TitleRepo titleRepo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         titleRepo = new TitleRepoImpl(this);
-        quantityRepo = QuantityRepoImpl.createFrom(this);
+        kavaRepo = KavaRepoImpl.createFrom(this);
         initCategories();
         initFormatter();
         setupUI();
@@ -54,14 +52,14 @@ public class CheckoutActivity
         categories = new ArrayList<>();
         for (int i = 0; i < parcels.length; i++) {
             Category c = (Category) parcels[i];
-            if (!quantityRepo.isEmpty(c))
+            if (!kavaRepo.isEmpty(c))
                 categories.add(c);
         }
     }
 
     private void initFormatter() {
         formatter = new CheckoutFormatter(
-                quantityRepo,
+                kavaRepo,
                 categories.toArray(new Category[categories.size()]),
                 getString(R.string.atoms),
                 getString(R.string.containers));

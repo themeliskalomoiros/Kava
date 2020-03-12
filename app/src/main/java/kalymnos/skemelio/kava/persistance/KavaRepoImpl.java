@@ -11,23 +11,23 @@ import kalymnos.skemelio.kava.model.Item;
 import kalymnos.skemelio.kava.model.Quantity;
 
 // TODO: needs refactoring
-public class QuantityRepoImpl implements QuantityRepo {
-    private static QuantityRepoImpl INSTANCE = null;
+public class KavaRepoImpl implements KavaRepo {
+    private static KavaRepoImpl INSTANCE = null;
     private SharedPreferences categoryPrefs;
     private SharedPreferences itemPrefs;
 
-    private QuantityRepoImpl(SharedPreferences categories, SharedPreferences items) {
+    private KavaRepoImpl(SharedPreferences categories, SharedPreferences items) {
         categoryPrefs = categories;
         itemPrefs = items;
     }
 
-    public static QuantityRepo createFrom(Context c) {
+    public static KavaRepo createFrom(Context c) {
         if (INSTANCE == null) {
             SharedPreferences cp =
                     c.getSharedPreferences(Category.class.getSimpleName(), Context.MODE_PRIVATE);
             SharedPreferences ip =
                     c.getSharedPreferences(Item.class.getSimpleName(), Context.MODE_PRIVATE);
-            INSTANCE = new QuantityRepoImpl(cp, ip);
+            INSTANCE = new KavaRepoImpl(cp, ip);
         }
         return INSTANCE;
     }

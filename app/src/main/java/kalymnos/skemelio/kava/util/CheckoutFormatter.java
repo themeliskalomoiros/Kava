@@ -8,16 +8,16 @@ import kalymnos.skemelio.kava.model.Categories;
 import kalymnos.skemelio.kava.model.Category;
 import kalymnos.skemelio.kava.model.Item;
 import kalymnos.skemelio.kava.model.Quantity;
-import kalymnos.skemelio.kava.persistance.QuantityRepo;
+import kalymnos.skemelio.kava.persistance.KavaRepo;
 
 public class CheckoutFormatter {
     private final String atomLabel;
     private final String containerLabel;
-    private final QuantityRepo repo;
+    private final KavaRepo repo;
     private final Category[] categories;
 
     public CheckoutFormatter(
-            QuantityRepo repo,
+            KavaRepo repo,
             Category[] categories,
             String atomLabel,
             String containerLabel) {

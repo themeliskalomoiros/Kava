@@ -1,7 +1,6 @@
 package kalymnos.skemelio.kava.controller;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
@@ -28,9 +27,8 @@ import java.util.List;
 import kalymnos.skemelio.kava.R;
 import kalymnos.skemelio.kava.model.Categories;
 import kalymnos.skemelio.kava.model.Category;
-import kalymnos.skemelio.kava.model.Item;
-import kalymnos.skemelio.kava.persistance.QuantityRepo;
-import kalymnos.skemelio.kava.persistance.QuantityRepoImpl;
+import kalymnos.skemelio.kava.persistance.KavaRepo;
+import kalymnos.skemelio.kava.persistance.KavaRepoImpl;
 import kalymnos.skemelio.kava.util.JsonDataRetriever;
 import kalymnos.skemelio.kava.view.screen_main.MainScreenViewMvc;
 import kalymnos.skemelio.kava.view.screen_main.MainScreenViewMvcImpl;
@@ -41,14 +39,14 @@ public class MainActivity extends AppCompatActivity
 
     private static final int LOADER_ID = 1212;
 
-    private QuantityRepo repo;
+    private KavaRepo repo;
     private MainScreenViewMvc viewMvc;
     private List<Category> categories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        repo = QuantityRepoImpl.createFrom(this);
+        repo = KavaRepoImpl.createFrom(this);
         setupUI();
         getSupportLoaderManager().restartLoader(LOADER_ID, null, this);
     }

@@ -7,7 +7,7 @@ import kalymnos.skemelio.kava.model.Item;
 import kalymnos.skemelio.kava.model.Quantity;
 
 // TODO: needs refactoring
-public interface QuantityRepo {
+public interface KavaRepo {
     boolean isCategorySet(int categoryId);
 
     void markCategoryAsSet(int categoryId);

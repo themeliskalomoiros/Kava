@@ -1,7 +1,6 @@
 package kalymnos.skemelio.kava.view.screen_main;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,19 +14,18 @@ import java.util.List;
 
 import kalymnos.skemelio.kava.R;
 import kalymnos.skemelio.kava.model.Category;
-import kalymnos.skemelio.kava.model.Item;
-import kalymnos.skemelio.kava.persistance.QuantityRepo;
-import kalymnos.skemelio.kava.persistance.QuantityRepoImpl;
+import kalymnos.skemelio.kava.persistance.KavaRepo;
+import kalymnos.skemelio.kava.persistance.KavaRepoImpl;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoryHolder> {
     private Context context;
     private List<Category> categories;
     private MainScreenViewMvc.OnCategoryClickListener itemClickListener;
-    private QuantityRepo repo;
+    private KavaRepo repo;
 
     public CategoriesAdapter(Context c) {
         this.context = c;
-        repo = QuantityRepoImpl.createFrom(c);
+        repo = KavaRepoImpl.createFrom(c);
     }
 
     public void add(List<Category> categories) {

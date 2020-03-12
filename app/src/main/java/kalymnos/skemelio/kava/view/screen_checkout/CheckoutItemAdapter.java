@@ -1,7 +1,6 @@
 package kalymnos.skemelio.kava.view.screen_checkout;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,18 +16,18 @@ import kalymnos.skemelio.kava.R;
 import kalymnos.skemelio.kava.model.Category;
 import kalymnos.skemelio.kava.model.Item;
 import kalymnos.skemelio.kava.model.Quantity;
-import kalymnos.skemelio.kava.persistance.QuantityRepo;
-import kalymnos.skemelio.kava.persistance.QuantityRepoImpl;
+import kalymnos.skemelio.kava.persistance.KavaRepo;
+import kalymnos.skemelio.kava.persistance.KavaRepoImpl;
 
 public class CheckoutItemAdapter extends RecyclerView.Adapter<CheckoutItemAdapter.ItemHolder> {
 
     private List<Category> categories;
-    private QuantityRepo quantities;
+    private KavaRepo quantities;
     private Context context;
 
     public CheckoutItemAdapter(Context c) {
         this.context = c;
-        quantities = QuantityRepoImpl.createFrom(c);
+        quantities = KavaRepoImpl.createFrom(c);
     }
 
     public void add(List<Category> categories) {
