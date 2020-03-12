@@ -29,21 +29,11 @@ public class ItemsActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initRepo();
+        repo = QuantityRepoImpl.createFrom(this);
         initCategory();
         initQuantities(savedInstanceState);
         initViewMvc();
         setupUI();
-    }
-
-    private void initRepo() {
-        SharedPreferences categoryPrefs = getSharedPreferences(
-                Category.class.getSimpleName(),
-                MODE_PRIVATE);
-        SharedPreferences itemPrefs = getSharedPreferences(
-                Item.class.getSimpleName(),
-                MODE_PRIVATE);
-        repo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
     }
 
     private void initCategory() {

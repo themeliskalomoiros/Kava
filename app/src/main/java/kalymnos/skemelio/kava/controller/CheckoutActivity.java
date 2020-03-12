@@ -42,18 +42,10 @@ public class CheckoutActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         titleRepo = new TitleRepoImpl(this);
-        initQuantities();
+        quantityRepo = QuantityRepoImpl.createFrom(this);
         initCategories();
         initFormatter();
         setupUI();
-    }
-
-    private void initQuantities() {
-        SharedPreferences categoryPrefs =
-                getSharedPreferences(Category.class.getSimpleName(), MODE_PRIVATE);
-        SharedPreferences itemPrefs =
-                getSharedPreferences(Item.class.getSimpleName(), MODE_PRIVATE);
-        quantityRepo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
     }
 
     private void initCategories() {

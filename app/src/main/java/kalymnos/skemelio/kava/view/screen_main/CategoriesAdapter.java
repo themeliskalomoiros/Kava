@@ -25,11 +25,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     private MainScreenViewMvc.OnCategoryClickListener itemClickListener;
     private QuantityRepo repo;
 
-    public CategoriesAdapter(Context context) {
-        this.context = context;
-        SharedPreferences categoryPrefs = context.getSharedPreferences(Category.class.getSimpleName(), Context.MODE_PRIVATE);
-        SharedPreferences itemPrefs = context.getSharedPreferences(Item.class.getSimpleName(), Context.MODE_PRIVATE);
-        repo = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
+    public CategoriesAdapter(Context c) {
+        this.context = c;
+        repo = QuantityRepoImpl.createFrom(c);
     }
 
     public void add(List<Category> categories) {

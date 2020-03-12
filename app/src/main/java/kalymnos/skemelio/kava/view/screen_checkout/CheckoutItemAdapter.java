@@ -28,15 +28,7 @@ public class CheckoutItemAdapter extends RecyclerView.Adapter<CheckoutItemAdapte
 
     public CheckoutItemAdapter(Context c) {
         this.context = c;
-        initRepo();
-    }
-
-    private void initRepo() {
-        SharedPreferences categoryPrefs =
-                context.getSharedPreferences(Category.class.getSimpleName(), Context.MODE_PRIVATE);
-        SharedPreferences itemPrefs =
-                context.getSharedPreferences(Item.class.getSimpleName(), Context.MODE_PRIVATE);
-        quantities = QuantityRepoImpl.getInstance(categoryPrefs, itemPrefs);
+        quantities = QuantityRepoImpl.createFrom(c);
     }
 
     public void add(List<Category> categories) {

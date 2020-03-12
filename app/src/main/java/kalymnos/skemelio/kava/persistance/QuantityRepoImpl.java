@@ -1,5 +1,6 @@
 package kalymnos.skemelio.kava.persistance;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 
 import java.util.ArrayList;
@@ -13,16 +14,20 @@ import kalymnos.skemelio.kava.model.Quantity;
 public class QuantityRepoImpl implements QuantityRepo {
     private static QuantityRepoImpl INSTANCE = null;
     private SharedPreferences categoryPrefs;
-    private SharedPreferences itemsPrefs;
+    private SharedPreferences itemPrefs;
 
-    private QuantityRepoImpl(SharedPreferences categoryPrefs, SharedPreferences itemsPrefs) {
-        this.categoryPrefs = categoryPrefs;
-        this.itemsPrefs = itemsPrefs;
+    private QuantityRepoImpl(SharedPreferences categories, SharedPreferences items) {
+        categoryPrefs = categories;
+        itemPrefs = items;
     }
 
-    public static QuantityRepo getInstance(SharedPreferences categoryPrefs, SharedPreferences itemsPrefs) {
+    public static QuantityRepo createFrom(Context c) {
         if (INSTANCE == null) {
-            INSTANCE = new QuantityRepoImpl(categoryPrefs, itemsPrefs);
+            SharedPreferences cp =
+                    c.getSharedPreferences(Category.class.getSimpleName(), Context.MODE_PRIVATE);
+            SharedPreferences ip =
+                    c.getSharedPreferences(Item.class.getSimpleName(), Context.MODE_PRIVATE);
+            INSTANCE = new QuantityRepoImpl(cp, ip);
         }
         return INSTANCE;
     }
@@ -44,7 +49,7 @@ public class QuantityRepoImpl implements QuantityRepo {
 
     @Override
     public void save(String[] items, Quantity[] quantities) {
-        SharedPreferences.Editor editor = itemsPrefs.edit();
+        SharedPreferences.Editor editor = itemPrefs.edit();
         putValuesToPrefs(items, quantities, editor);
         editor.apply();
     }
@@ -60,14 +65,14 @@ public class QuantityRepoImpl implements QuantityRepo {
     @Override
     public void clear() {
         categoryPrefs.edit().clear().apply();
-        itemsPrefs.edit().clear().apply();
+        itemPrefs.edit().clear().apply();
     }
 
     @Override
     public boolean isEmpty(List<Category> categories) {
         List<Boolean> categoriesChecked = new ArrayList<>(categories.size());
         for (Category c : categories) {
-            categoriesChecked.add(categoryPrefs.getBoolean(String.valueOf(c.id), false));
+            categoriesChecked.add(this.categoryPrefs.getBoolean(String.valueOf(c.id), false));
         }
         for (boolean checked : categoriesChecked) {
             if (checked) {
@@ -105,7 +110,7 @@ public class QuantityRepoImpl implements QuantityRepo {
 
     @Override
     public Quantity getQuantityOf(Item item) {
-        String atomContainer = itemsPrefs.getString(item.toString(), "0,0");
+        String atomContainer = itemPrefs.getString(item.toString(), "0,0");
         String[] values = atomContainer.split(",");
         int atom = Integer.parseInt(values[0]);
         int container = Integer.parseInt(values[1]);
