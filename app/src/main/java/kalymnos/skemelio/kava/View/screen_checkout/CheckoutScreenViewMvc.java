@@ -6,7 +6,6 @@ import kalymnos.skemelio.kava.model.Category;
 import kalymnos.skemelio.kava.view.ViewMvc;
 
 public interface CheckoutScreenViewMvc extends ViewMvc {
-
     interface OnShareListener {
         void onShare();
     }
