@@ -1,7 +1,7 @@
 # Kava
 
 Kava is an Android application especially made to assist bartenders of Domus beach bar in 
-the greek islan of Kalymnos. It's really of no use to anybody else.
+the greek island of Kalymnos. It's really of no use to anybody else.
 
 ## More Info
 
